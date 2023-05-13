@@ -1,0 +1,27 @@
+{
+    "name": "rapkalin/explain-code",
+    "description": "Blog - explain code to me - by Noweh and Rapkalin",
+    "require": {
+        "johnpbloch/wordpress": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rapkalin\\ExplainCode\\": "wordpress/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rapkalin",
+            "email": "raphael@myminicom.com"
+        },
+        {
+            "name": "Noweh",
+            "email": "jschmitt95@protonmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
+    }
+}
