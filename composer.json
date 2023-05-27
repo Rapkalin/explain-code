@@ -26,10 +26,12 @@
     "require": {
         "johnpbloch/wordpress": "^6.2",
         "composer/installers": "~1.0",
-        "wpackagist-theme/newsmatic":"^1.2",
-        "vlucas/phpdotenv": "^5.5"
+        "wpackagist-theme/newsmatic": "^1.2",
+        "vlucas/phpdotenv": "^5.5",
+        "wpackagist-plugin/advanced-accordion-block": "4.6.0",
+        "wpackagist-plugin/code-syntax-block": "3.1.1",
+        "wpackagist-plugin/dashboard-widgets-suite": "3.3.1"
     },
-
     "autoload": {
         "psr-4": {
             "Rapkalin\\ExplainCode\\": "website/"
@@ -41,6 +43,9 @@
         "installer-paths": {
             "website/wordpress/wp-content/themes/{$name}/": [
                 "type:wordpress-theme"
+            ],
+            "website/wordpress/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
             ]
         }
     },
