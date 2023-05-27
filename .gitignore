@@ -49,3 +49,4 @@ wordpress/
 .phpunit.result.cache
 tags
 
+config_prod/
