@@ -1,5 +1,6 @@
 .idea/
 vendor/
+.DS_Store
 
 # Wordpress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
@@ -8,19 +9,10 @@ vendor/
 #
 # Note: if you want to stage/commit WP core files
 # you can delete this whole section/until Configuration.
-wordpress/
+wordpress-core/
 
-# Configuration
-/wp-config.php
-
-# Example themes
-/wp-content/themes/twenty*/
-
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
+# Content: Uploads and themes
+website/app/*
 
 # Log files
 *.log

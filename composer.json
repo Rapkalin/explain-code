@@ -24,38 +24,48 @@
     ],
 
     "require": {
+        "php": ">=8.1",
         "johnpbloch/wordpress": "^6.2",
         "composer/installers": "~1.0",
-        "wpackagist-theme/newsmatic": "^1.2",
         "vlucas/phpdotenv": "^5.5",
-        "wpackagist-plugin/advanced-accordion-block": "4.6.0",
-        "wpackagist-plugin/code-syntax-block": "3.1.1",
-        "wpackagist-plugin/dashboard-widgets-suite": "3.3.1"
+
+        "wpackagist-theme/newsmatic":"^1.2",
+
+        "wpackagist-plugin/w3-total-cache":"2.3.2",
+        "wpackagist-plugin/advanced-accordion-block":"4.6.0",
+        "wpackagist-plugin/code-syntax-block":"3.1.1",
+        "wpackagist-plugin/dashboard-widgets-suite":"3.3.1",
+        "wpackagist-plugin/hello-dolly":"1.7.2",
+        "wpackagist-plugin/akismet":"5.1"
     },
+
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+
     "autoload": {
         "psr-4": {
             "Rapkalin\\ExplainCode\\": "website/"
         }
     },
 
-    "extra": {
-        "wordpress-install-dir": "website/wordpress",
-        "installer-paths": {
-            "website/wordpress/wp-content/themes/{$name}/": [
-                "type:wordpress-theme"
-            ],
-            "website/wordpress/wp-content/plugins/{$name}/": [
-                "type:wordpress-plugin"
-            ]
-        }
-    },
-
     "config": {
-        "preferred-install": "dist",
         "vendor-dir": "website/vendor",
         "allow-plugins": {
             "johnpbloch/wordpress-core-installer": true,
             "composer/installers": true
+        }
+    },
+
+    "extra": {
+        "wordpress-install-dir": "website/wordpress-core",
+        "installer-paths": {
+            "website/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "website/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
         }
     }
 }

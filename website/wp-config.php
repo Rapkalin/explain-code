@@ -93,13 +93,17 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
-/* That's all, stop editing! Happy publishing. */
-
-/** Absolute path to the WordPress directory. */
+/** Define a custom path to the config.php file */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . 'wp-config.php/');
+    define( 'ABSPATH', __DIR__ . 'wp-config.php');
 }
+
+/** Define a custom default theme */
+define( 'WP_DEFAULT_THEME', 'newsmatic' );
+
+/** Define a custom content directory */
+define ('WP_CONTENT_DIR', __DIR__ . '/app/');
+/* That's all, stop editing! Happy publishing. */
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
