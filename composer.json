@@ -1,14 +1,6 @@
 {
     "name": "rapkalin/explain-code",
     "description": "Blog - explain code to me - by Noweh and Rapkalin",
-    "require": {
-        "johnpbloch/wordpress": "^6.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "Rapkalin\\ExplainCode\\": "wordpress/"
-        }
-    },
     "authors": [
         {
             "name": "Rapkalin",
@@ -19,9 +11,46 @@
             "email": "jschmitt95@protonmail.com"
         }
     ],
+
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+
+    "require": {
+        "johnpbloch/wordpress": "^6.2",
+        "composer/installers": "~1.0",
+        "wpackagist-theme/newsmatic":"^1.2",
+        "vlucas/phpdotenv": "^5.5"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Rapkalin\\ExplainCode\\": "website/"
+        }
+    },
+
+    "extra": {
+        "wordpress-install-dir": "website/wordpress",
+        "installer-paths": {
+            "website/wordpress/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+
     "config": {
+        "preferred-install": "dist",
+        "vendor-dir": "website/vendor",
         "allow-plugins": {
-            "johnpbloch/wordpress-core-installer": true
+            "johnpbloch/wordpress-core-installer": true,
+            "composer/installers": true
         }
     }
 }
