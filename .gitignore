@@ -13,6 +13,7 @@ wordpress-core/
 
 # Content: Uploads and themes
 website/app/*
+!website/app/languages
 
 # Log files
 *.log
