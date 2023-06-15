@@ -103,7 +103,7 @@ define( 'WP_DEFAULT_THEME', 'newsmatic' );
 
 /** Define a custom content directory */
 define ('WP_CONTENT_DIR', __DIR__ . '/app/');
-define ('WP_CONTENT_URL', $env['WP_CONTENT_URL'] . '/app/');
+define ('WP_CONTENT_URL', $env['WP_CONTENT_URL'] . 'app');
 define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core/');
 
 /* That's all, stop editing! Happy publishing. */
