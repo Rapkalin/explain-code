@@ -1,0 +1,33 @@
+/* HOMEPAGE */
+
+/*  Remove top border blocks */
+#colophon {
+    border-top : none;
+}
+
+/* Override width for
+ * last articles block */
+#theme-content .row {
+    max-width : auto;
+}
+
+.primary-content {
+    width : inherit;
+}
+
+/*  Force white color for toggle in dark mode */
+.mode_toggle:checked {
+    color : whitesmoke;
+}
+
+.newsmatic_dark_mode .primary-content {
+    --archive-content-bk-color: #1E2731;
+}
+
+.newsmatic_dark_mode #bottom-full-width-section .row > div {
+    --full-width-bottom-content-bk-color: #2E3844;
+}
+
+.newsmatic_dark_mode #bottom-full-width-section {
+    --full-width-bottom-section-bk-color:#2E3844;
+}

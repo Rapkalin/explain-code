@@ -27,7 +27,8 @@ wordpress-core/
 # Add ! for files and dir to commit
 website/app/*
 !website/app/languages
-!website/app/themes/newsmatic-child
+!website/app/themes/
+website/app/themes/newsmatic
 
 # Global gitignore setup
 /composer.lock
