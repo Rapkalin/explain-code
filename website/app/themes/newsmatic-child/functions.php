@@ -10,7 +10,7 @@ add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_update_parent_action', 1
  *
  * @return void
  */
-function newsmatic_enqueue_styles ()
+function newsmatic_enqueue_styles () : void 
 {
     $parenthandle = 'newsmatic-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
     $theme = wp_get_theme();
@@ -25,7 +25,7 @@ function newsmatic_enqueue_styles ()
  *
  * @return void
  */
-function newsmatic_child_register_style ()
+function newsmatic_child_register_style () : void
 {
     wp_register_style( 'newsmatic-child-style', get_stylesheet_uri());
     wp_enqueue_style( 'newsmatic-child-style');
