@@ -18,7 +18,7 @@
  * @package WordPress
  */
 
-define('DIR_VENDOR', __DIR__.'/vendor/');
+define('DIR_VENDOR', __DIR__ . '/vendor/');
 
 // Autoloader
 if (file_exists(DIR_VENDOR . 'autoload.php')) {
@@ -93,13 +93,20 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
+/** Define a custom path to the config.php file */
+if ( ! defined( 'ABSPATH' ) ) {
+    define( 'ABSPATH', __DIR__ . 'wp-config.php');
+}
+
+/** Define a custom default theme */
+define( 'WP_DEFAULT_THEME', 'newsmatic' );
+
+/** Define a custom content directory */
+define ('WP_CONTENT_DIR', __DIR__ . '/app');
+define ('WP_CONTENT_URL', $env['WP_CONTENT_URL'] . 'app');
+define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core/');
 
 /* That's all, stop editing! Happy publishing. */
-
-/** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . 'wp-config.php/');
-}
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
