@@ -11,10 +11,6 @@ vendor/
 # you can delete this whole section/until Configuration.
 wordpress-core/
 
-# Content: Uploads and themes
-website/app/*
-!website/app/languages
-
 # Log files
 *.log
 
@@ -27,11 +23,11 @@ website/app/*
 # uncomment the next line
 #/wp-content/plugins
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# Content: Uploads and themes
+# Add ! for files and dir to commit
+website/app/*
+!website/app/languages
+!website/app/themes/newsmatic-child
 
 # Global gitignore setup
 /composer.lock
@@ -41,5 +37,3 @@ website/.env
 .vscode/
 .phpunit.result.cache
 tags
-
-config_prod/
