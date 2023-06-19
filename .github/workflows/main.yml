@@ -30,11 +30,14 @@ jobs:
           dev: no
           args: --prefer-dist --no-interaction
 
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: website/
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,6 +56,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app
+
+      - name: unzip artifact for deployment
+        run: unzip release.zip
 
       - name: Deploy with rsync
         uses: burnett01/rsync-deployments@5.2
