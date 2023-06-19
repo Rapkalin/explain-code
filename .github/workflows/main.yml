@@ -82,7 +82,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - run: curl -v telnet://${{ secrets.DEPLOY_HOST }}:22
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
@@ -96,3 +95,4 @@ jobs:
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key_pass: ${{ secrets.DEPLOY_KEY_PASS }}
