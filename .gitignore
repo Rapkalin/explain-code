@@ -41,8 +41,6 @@ website/app/plugins/jetpack
 website/app/plugins/w3-total-cache
 website/app/plugins/wordpress-seo
 
-
-
 # Global gitignore setup
 /composer.lock
 website/.env
