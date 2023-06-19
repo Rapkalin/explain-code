@@ -76,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: explain-code/website/app/
+          path: website/app/
   deploy:
     runs-on: ubuntu-latest
     needs: build
