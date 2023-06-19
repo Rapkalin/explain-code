@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - run: curl -v telnet://${{ secrets.SSH_HOST }}:443
+      - run: curl -v telnet://${{ secrets.DEPLOY_HOST }}:443
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
