@@ -2,6 +2,8 @@ name: Deploy website on push new tag
 
 on: [push]
 
+concurrency: production_environment
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,14 +29,14 @@ jobs:
           dev: no
           args: --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
-      - name: remove old Symlink
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: unlink myfolder/website
+      #- name: remove old Symlink
+      #  uses: appleboy/ssh-action@v0.1.10
+      #  with:
+      #    host: ${{ secrets.HOST }}
+      #    username: ${{ secrets.USERNAME }}
+      #    password: ${{ secrets.PASSWORD }}
+      #    port: ${{ secrets.PORT }}
+      #    script: unlink myfolder/website
 
       - name: Deploy
         uses: deployphp/action@master
@@ -46,11 +48,11 @@ jobs:
           sub-directory: ""
           dep: deploy prod -v
 
-      - name: create new Symlink
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: ln -s myfolder/shared myfolder/website
+      #- name: create new Symlink
+      #  uses: appleboy/ssh-action@v0.1.10
+      #  with:
+      #    host: ${{ secrets.HOST }}
+      #    username: ${{ secrets.USERNAME }}
+      #    password: ${{ secrets.PASSWORD }}
+      #    port: ${{ secrets.PORT }}
+      #    script: ln -s myfolder/shared myfolder/website
