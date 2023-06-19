@@ -41,7 +41,7 @@ jobs:
     needs: build
     steps:
       - name: remove old Symlink
-        run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "unlink ~/code/shared/"
+        run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} -vvv "unlink ~/code/shared/"
 
       - name: Download artifact
         uses: actions/download-artifact@v3
@@ -60,4 +60,4 @@ jobs:
           remote_key: ${{ secrets.DEPLOY_KEY }}
 
       - name: remove old Symlink
-        run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "ln -s ~/code/shared/ ~/code/deploy"
+        run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} -vvv "ln -s ~/code/shared/ ~/code/deploy"
