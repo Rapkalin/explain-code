@@ -41,8 +41,7 @@ jobs:
       - name: Deploy
         uses: deployphp/action@master
         with:
-          options:
-            keep_releases: 2
+          keep_releases: 2
           private-key: ${{ secrets.PRIVATE_KEY }}
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
           sub-directory: "~/code/deploy"
