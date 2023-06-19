@@ -43,7 +43,7 @@ jobs:
           keep_releases: 2
           private-key: ${{ secrets.PRIVATE_KEY }}
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
-          sub-directory: "code/deploy"
+          # sub-directory: "code/deploy"
           dep: deploy prod -v
 
       #- name: create new Symlink
