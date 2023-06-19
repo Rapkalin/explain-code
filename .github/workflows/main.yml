@@ -1,0 +1,58 @@
+name: Deploy website on push new tag
+
+on: [push]
+
+concurrency: production_environment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [ 8.1 ]
+        dependency-version: [ prefer-stable ]
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          dev: no
+          args: --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+
+      #- name: remove old Symlink
+      #  uses: appleboy/ssh-action@v0.1.10
+      #  with:
+      #    host: ${{ secrets.HOST }}
+      #    username: ${{ secrets.USERNAME }}
+      #    password: ${{ secrets.PASSWORD }}
+      #    port: ${{ secrets.PORT }}
+      #    script: unlink myfolder/website
+
+      - name: Deploy
+        uses: deployphp/action@master
+        with:
+          options:
+            keep_releases: 2
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          known-hosts: ${{ secrets.KNOWN_HOSTS }}
+          sub-directory: ""
+          dep: deploy prod -v
+
+      #- name: create new Symlink
+      #  uses: appleboy/ssh-action@v0.1.10
+      #  with:
+      #    host: ${{ secrets.HOST }}
+      #    username: ${{ secrets.USERNAME }}
+      #    password: ${{ secrets.PASSWORD }}
+      #    port: ${{ secrets.PORT }}
+      #    script: ln -s myfolder/shared myfolder/website
