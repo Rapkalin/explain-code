@@ -76,8 +76,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: |
-            vendor
+          path: explain-code/website/app/
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -91,7 +90,7 @@ jobs:
         with:
           switches: -avzr --delete
           path: .
-          remote_path: /var/www/mysite
+          remote_path: /code/deploy
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
