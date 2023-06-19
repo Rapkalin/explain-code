@@ -76,7 +76,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: website/app/
+          path: |
+            website/app/plugins
+            website/app/languages
+            website/app/fonts
+            website/vendor
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -93,4 +97,4 @@ jobs:
           remote_path: /code/deploy
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
-          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key: ${{ secrets.PRIVATE_KEY }}
