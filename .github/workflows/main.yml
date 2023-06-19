@@ -2,75 +2,33 @@ name: Deploy website on push new tag
 
 on: [push]
 
-concurrency: production_environment
-
 jobs:
-  #deploy:
-  #  runs-on: ubuntu-latest
-  #  strategy:
-  #    fail-fast: true
-  #    matrix:
-  #      php: [ 8.1 ]
-
-    #steps:
-      #- name: checkout code
-      #  uses: actions/checkout@v3
-
-      #- name: Cache Composer dependencies
-      #  uses: actions/cache@v3
-      #  with:
-      #    path: /tmp/composer-cache
-      #    key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-
-      #- name: Install dependencies
-      #  uses: php-actions/composer@v6
-      #  with:
-      #    dev: no
-      #    args: --prefer-dist --no-interaction
-
-      #- name: remove old Symlink
-      #  uses: appleboy/ssh-action@v0.1.10
-      #  with:
-      #    host: ${{ secrets.HOST }}
-      #    username: ${{ secrets.USERNAME }}
-      #    password: ${{ secrets.PASSWORD }}
-      #    port: ${{ secrets.PORT }}
-      #    script: unlink myfolder/website
-
-      #- name: Install deployer
-      #  uses: deployphp/action@master
-      #  with:
-      #    private-key: ${{ secrets.PRIVATE_KEY }}
-      #    known-hosts: ${{ secrets.KNOWN_HOSTS }}
-      #    # sub-directory: "code/deploy"
-      #    dep: init
-      #    deployer-version: "7.0.0"
-
-      #- name: Deploy to Production
-      #  run: php deploy.php deploy prod --branch="main" -vv
-      #- name: create new Symlink
-      #  uses: appleboy/ssh-action@v0.1.10
-      #  with:
-      #    host: ${{ secrets.HOST }}
-      #    username: ${{ secrets.USERNAME }}
-      #    password: ${{ secrets.PASSWORD }}
-      #    port: ${{ secrets.PORT }}
-      #    script: ln -s myfolder/shared myfolder/website
-
   build:
     runs-on: ubuntu-latest
-    env:
-      COMPOSER_NO_DEV: 1
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [ 8.1 ]
+
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup PHP
-        uses: "shivammathur/setup-php@v2"
+      - name: Restore the Composer cache directory
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
         with:
-          php-version: 8.1
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-'8.0'-composer-
 
-      - name: Install Composer packages
-        uses: "ramsey/composer-install@v2"
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          dev: no
+          args: --prefer-dist --no-interaction
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -82,10 +40,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      #- name: remove old Symlink
+      #  uses: appleboy/ssh-action@v0.1.10
+      #  with:
+      #    host: ${{ secrets.HOST }}
+      #    username: ${{ secrets.USERNAME }}
+      #    password: ${{ secrets.PASSWORD }}
+      #    port: ${{ secrets.PORT }}
+      #    script: unlink myfolder/website
+
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: app
+
       - name: Deploy with rsync
         uses: burnett01/rsync-deployments@5.2
         with:
@@ -96,3 +64,12 @@ jobs:
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
+
+      #- name: create new Symlink
+      #  uses: appleboy/ssh-action@v0.1.10
+      #  with:
+      #    host: ${{ secrets.HOST }}
+      #    username: ${{ secrets.USERNAME }}
+      #    password: ${{ secrets.PASSWORD }}
+      #    port: ${{ secrets.PORT }}
+      #    script: ln -s myfolder/shared myfolder/website
