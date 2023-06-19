@@ -94,7 +94,8 @@ jobs:
         with:
           switches: -avzr --delete
           path: .
-          remote_path: /code/deploy
+          remote_path: ~/code/deploy
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
-          remote_key: ${{ secrets.PRIVATE_KEY }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+          remote_key_pass: ${{ secrets.PASSPHRASE_KEY }}
