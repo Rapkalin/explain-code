@@ -43,7 +43,7 @@ jobs:
           private-key: ${{ secrets.PRIVATE_KEY }}
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
           # sub-directory: "code/deploy"
-          dep: prepare
+          dep: test
           deployer-version: "7.0.0"
 
       #- name: create new Symlink
