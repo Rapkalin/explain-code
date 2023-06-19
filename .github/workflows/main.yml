@@ -41,7 +41,13 @@ jobs:
     needs: build
     steps:
       - name: remove old Symlink
-        run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} -vvv "unlink ~/code/shared/"
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: 22
+          script: unlink ~/code/shared/
 
       - name: Download artifact
         uses: actions/download-artifact@v3
@@ -59,5 +65,5 @@ jobs:
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
 
-      - name: remove old Symlink
-        run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} -vvv "ln -s ~/code/shared/ ~/code/deploy"
+      #- name: remove old Symlink
+      #  run: ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} -vvv "ln -s ~/code/shared/ ~/code/deploy"
