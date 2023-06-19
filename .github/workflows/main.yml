@@ -47,7 +47,7 @@ jobs:
           deployer-version: "7.0.0"
 
       - name: Deploy to Production
-        run: php deployer.phar deploy prod --branch="main" -vv
+        run: php deploy.php deploy prod --branch="main" -vv
       #- name: create new Symlink
       #  uses: appleboy/ssh-action@v0.1.10
       #  with:
