@@ -37,15 +37,17 @@ jobs:
       #    port: ${{ secrets.PORT }}
       #    script: unlink myfolder/website
 
-      - name: Deploy
+      - name: Install deployer
         uses: deployphp/action@master
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
           # sub-directory: "code/deploy"
-          dep: init prepare deploy
+          dep: init
           deployer-version: "7.0.0"
 
+      - name: Deploy to Production
+        run: php deployer.phar deploy prod --branch="main" -vv
       #- name: create new Symlink
       #  uses: appleboy/ssh-action@v0.1.10
       #  with:
