@@ -76,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: website/app/plugins
+          path: website/app/languages
 
   deploy:
     runs-on: ubuntu-latest
