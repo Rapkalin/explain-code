@@ -76,7 +76,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: website/app/fonts
+          path: website/app/plugins
 
   deploy:
     runs-on: ubuntu-latest
