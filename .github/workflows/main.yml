@@ -33,8 +33,7 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           cd website/app
-          zip -r release.zip ./* -x ".git/*" ".github/*"
-          mv website/app/release.zip ./release.zip
+          zip -r release.zip website/app/* vendor/ -x ".git/*" ".github/*" "website/app/themes"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
