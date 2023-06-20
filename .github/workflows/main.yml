@@ -53,7 +53,7 @@ jobs:
           name: app
 
       - name: unzip artifact for deployment
-        run: unzip release.zip -o
+        run: unzip -o release.zip
 
       - name: Deploy with rsync
         uses: burnett01/rsync-deployments@5.2
