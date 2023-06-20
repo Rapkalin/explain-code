@@ -14,9 +14,6 @@ wordpress-core/
 # Log files
 *.log
 
-# htaccess
-.htaccess
-
 # All plugins
 #
 # Note: If you wish to whitelist plugins,
