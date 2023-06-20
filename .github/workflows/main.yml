@@ -44,14 +44,14 @@ jobs:
     needs: build
     steps:
 
-      - name: create or replace backup release
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: 22
-          script: "[ ! -d ~/code/website ] || mv -f ~/code/website/ ~/code/old_website/"
+    #  - name: create or replace backup release
+    #    uses: appleboy/ssh-action@v0.1.10
+    #    with:
+    #      host: ${{ secrets.DEPLOY_HOST }}
+    #      username: ${{ secrets.DEPLOY_USER }}
+    #      key: ${{ secrets.DEPLOY_KEY }}
+    #      port: 22
+    #      script: "[ ! -d ~/code/website ] || mv -f ~/code/website/ ~/code/old_website/"
 
       - name: checkout code
         uses: actions/checkout@v3
