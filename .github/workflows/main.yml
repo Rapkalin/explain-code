@@ -65,11 +65,11 @@ jobs:
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
 
-      #- name: create new Symlink
-      #  uses: appleboy/ssh-action@v0.1.10
-      #  with:
-      #    host: ${{ secrets.DEPLOY_HOST }}
-      #    username: ${{ secrets.DEPLOY_USER }}
-      #    key: ${{ secrets.DEPLOY_KEY }}
-      #    port: 22
-      #    script: ln -nsrf ~/code/shared/.env ~/code/deploy/.env && ln -nsrf ~/code/shared/uploads ~/code/deploy/app/uploads
+      - name: create new Symlink
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          script: ln -nsrf ~/code/shared/.env ~/code/deploy/.env && ln -nsrf ~/code/shared/uploads ~/code/deploy/app/uploads
