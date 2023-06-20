@@ -32,7 +32,7 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          zip -r release.zip website/app/* vendor/ -x ".git/*" -x ".github/*" -x "website/app/themes"
+          zip -r release.zip website/app/* vendor/ -x ".git/*" -x ".github/*" -x "website/app/themes/*"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -60,7 +60,7 @@ jobs:
         with:
           switches: -avzr --delete
           run: ls -la
-          path: .
+          path: ./website
           remote_path: ~/code/deploy
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_user: ${{ secrets.DEPLOY_USER }}
