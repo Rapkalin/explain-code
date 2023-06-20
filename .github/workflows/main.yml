@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: mv -f ~/code/deploy/website/ ~/code/deploy/old_website/
+          script: "[ ! -d website ] || mv -f ~/code/deploy/website/ ~/code/deploy/old_website/"
 
       - name: checkout code
         uses: actions/checkout@v3
