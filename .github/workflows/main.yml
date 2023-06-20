@@ -32,7 +32,7 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          zip -r release.zip website/app/* vendor/ -x ".git/*" -x ".github/*" -x "website/app/themes/*"
+          zip -r release.zip website/app/* vendor/* wordpress-core/* -x ".git/*" -x ".github/*"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
