@@ -32,7 +32,6 @@ jobs:
 
       - name: Zip artifact for deployment
         run: |
-          cd website/app
           zip -r release.zip website/app/* vendor/ -x ".git/*" ".github/*" "website/app/themes"
 
       - name: Upload artifact
