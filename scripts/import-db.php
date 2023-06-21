@@ -32,7 +32,7 @@ exec('scp ' . getenv('PROD_USER') . '@' . getenv('PROD_HOST') . ':' . $filename 
 
 if (file_exists('exports/' . $filename)) {
     echo "...SQL file copied locally.\r\n";
-    
+
     $pdo = new PDO(
         'mysql:host=' . getenv('DATABASE_HOST'),
         getenv('DATABASE_USER'),
