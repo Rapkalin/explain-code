@@ -26,6 +26,8 @@ website/app/*
 !website/app/languages
 !website/app/themes/
 website/app/themes/newsmatic
+exports/*
+!exports/.gitkeep
 
 !website/app/plugins/
 website/app/plugins/advanced-accordion-block
