@@ -91,7 +91,7 @@ If the translation file doesn't exist in the language you want:
 
 #### 3.2_ ADD A NEW WORD TO TRANSLATE
 If you want to add a new word to translate:
-- Open the _explain-code.pot_ file
+- Open the _explain-code.pot_ file with [poedit](https://poedit.net/)
 - Go to the translate (or catalog) menu
 - Click on update source code to retrieve all new translations added in the code
 
