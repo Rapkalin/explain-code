@@ -1,6 +1,9 @@
 name: Deploy website on push new tag
 
-on: [push]
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -43,7 +46,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-
       - name: create or replace backup release
         uses: appleboy/ssh-action@v0.1.10
         with:
