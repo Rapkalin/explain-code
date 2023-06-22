@@ -8,23 +8,23 @@ An advanced blog Wordpres project about coding by [Noweh](https://github.com/now
 
 ## HOW TO INSTALL THE PROJECT
 
-### 1- BACKEND
+### 1/ BACKEND
 
-#### 1.1- Create the directory on your computer
+#### 1.1_ Create the directory on your computer
 ```
 mkdir your-directory-name
 ```
 
-#### 1.2- Clone the website project from your directory (don't forget the . at the end):
+#### 1.2_ Clone the website project from your directory (don't forget the . at the end):
 ```git
 git clone git@github.com:Rapkalin/explain-code.git .
 ```
 
-#### 1.3- Move to the project directory and install the backend dependencies:
+#### 1.3_ Move to the project directory and install the backend dependencies:
 - cd your-directory-name
 - composer install
 
-#### 1.4- Copy the .env.sample file, rename it to .env and complete the needed variables:
+#### 1.4_ Copy the .env.sample file, rename it to .env and complete the needed variables:
 ```
 DATABASE_NAME='your-database-name'
 DATABASE_USER='your-database-username'
@@ -45,7 +45,7 @@ DATABASE_PROD_USER=
 DATABASE_PROD_PASSWORD=
 ```
 
-#### 1.5- Configure your vHost
+#### 1.5_ Configure your vHost
 - ServerName: explain-code.local 
 - Directory: your-directory-name/website
 ```
@@ -60,22 +60,22 @@ DATABASE_PROD_PASSWORD=
  </VirtualHost>
 ```
 
-#### 1.6- Import prod database
+#### 1.6_ Import prod database
 ```
 cd your-directory-name
 php scripts/import-db.php
 ```
 
-#### 1.7- Import the uploads directory from prod to local
+#### 1.7_ Import the uploads directory from prod to local
 ```
 cd your-directory-name
 php scripts/sync-uploads.php
 ```
 
-### 2- FRONTEND
+### 2/ FRONTEND
 - N/A
 
-### 3- TRANSLATIONS
+### 3/ TRANSLATIONS
 The explain-code.pot file is the website's base language 
 - Download and open the free [poedit](https://poedit.net/) software
 - Translation functions to use:
@@ -83,13 +83,13 @@ The explain-code.pot file is the website's base language
   - _e: Translate and displays
   - _n: Translate and displays the plural
   
-#### 3.1- ADD A NEW LANGUAGE
+#### 3.1_ ADD A NEW LANGUAGE
 If the translation file doesn't exist in the language you want:
 - Open the Poedit software
 - Create a new file from the _explain-code.pot_ file to retrieve all words to translate
 - Name it with the code needed code langage. Example: en_US
 
-#### 3.2- ADD A NEW WORD TO TRANSLATE
+#### 3.2_ ADD A NEW WORD TO TRANSLATE
 If you want to add a new word to translate:
 - Open the _explain-code.pot_ file
 - Go to the translate (or catalog) menu
@@ -97,7 +97,7 @@ If you want to add a new word to translate:
 
 ## MEANING OF SOME DIRECTORIES AND FILES
 
-### 4- WEBSITE/APP
+### 4/ WEBSITE/APP
 This directory replace the wordpress-core/wp-content native Wordpress directory. 
 This is where you will find all the plugins, themes etc:
 - W3 Super Cache: this plugin install a few files and directories:
