@@ -15,7 +15,7 @@ An advanced blog Wordpres project about coding by [Noweh](https://github.com/now
 mkdir your-directory-name
 ```
 
-2- Clone the website project from your directory:
+2- Clone the website project from your directory (don't forget the . at the end):
 ```git
 git clone git@github.com:Rapkalin/explain-code.git .
 ```
