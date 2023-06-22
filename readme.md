@@ -8,7 +8,7 @@ An advanced blog Wordpres project about coding by [Noweh](https://github.com/now
 
 ## HOW TO INSTALL THE PROJECT
 
-### BACKEND
+### 1- BACKEND
 
 1- Create the directory on your computer
 ```
@@ -39,6 +39,17 @@ WP_SITEURL=http://explain-code.local/
 4- Configure your vHost
 - ServerName: explain-code.local 
 - Directory: your-directory-name/website
+```
+  <VirtualHost *:80>
+    ServerName explain-code.local
+    DocumentRoot "/Users/r.kalinowski/Sites/explain-code/website"
+    ServerAlias explain-code.local.*
+    <Directory "/Users/r.kalinowski/Sites/explain-code/website">
+      Options Includes FollowSymLinks
+      AllowOverride All
+    </Directory>
+ </VirtualHost>
+```
 
 5- Import prod database
 ```
@@ -52,26 +63,38 @@ cd your-directory-name
 php scripts/sync-uploads.php
 ```
 
-### FRONTEND
+### 2- FRONTEND
 - N/A
+
+### 3- TRANSLATIONS
+The explain-code.pot file is the website's base language 
+- Download and open the free [poedit](https://poedit.net/) software
+- Translation functions to use:
+  - __: Translate
+  - _e: Translate and displays
+  - _n: Translate and displays the plural
+  
+#### ADD A NEW LANGUAGE
+If the translation file doesn't exist in the language you want:
+- Open the Poedit software
+- Create a new file from the _explain-code.pot_ file to retrieve all words to translate
+- Name it with the code needed code langage. Example: en_US
+
+#### ADD A NEW WORD TO TRANSLATE
+If you want to add a new word to translate:
+- Open the _explain-code.pot_ file
+- Go to the translate (or catalog) menu
+- Click on update source code to retrieve all new translations added in the code
 
 ## MEANING OF SOME DIRECTORIES AND FILES
 
 ### WEBSITE/APP
+This directory replace the wordpress-core/wp-content native Wordpress directory. 
+This is where you will find all the plugins, themes etc:
 - W3 Super Cache: this plugin install a few files and directories:
-    - cache
-    - w3tc-config
-    - advanced-cache.php
-- Languages: directory that handle the translation of your website. It is created by Wordpress when you configure the default language of your Wordpress website.
+  - cache
+  - w3tc-config
+  - advanced-cache.php
+- Languages: directory that handle the translations of your website. It is created by Wordpress when you configure the default language of your Wordpress website.
 - Uploads: contains all the website's media files
-
-### TRANSLATIONS
-The explain-code.pot file is the website's base language 
-To add translation:
-- Download and open the free [poedit](https://poedit.net/) software
-- 
-- If the translation file doesn't exist in the language you want, create it with the poedit software
-- Translation functions to use:
-  - __: Translate
-  - _e: Translate and displays 
-  - _n: Translate and displays the plural
+- Plugins and themes: where are all the plugins & themes and custom plugins & themes/child-themes
