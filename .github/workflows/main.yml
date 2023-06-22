@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: "[ ! -d ~/code/website ] || rm -rf ~/code/website/vendor ~/code/website/wordpress-core && mv -f -u ~/code/website/ ~/code/old_website"
+          script: "[ ! -d ~/code/website ] || rm -rf ~/code/website/vendor ~/code/website/wordpress-core && mv -fu ~/code/website/ ~/code/old_website"
 
       - name: checkout code
         uses: actions/checkout@v3
