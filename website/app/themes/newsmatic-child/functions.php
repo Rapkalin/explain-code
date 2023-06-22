@@ -7,6 +7,7 @@ add_action( 'wp_enqueue_scripts', 'newsmatic_child_register_style', 11 );
 add_action( 'after_switch_theme', 'set_newsmatic_child_theme_mods' );
 add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_update_parent_action', 11 );
 add_action( 'after_setup_theme', 'newsmatic_child_theme_locale' );
+add_action( 'pre_ping', 'no_self_ping' );
 
 /**
  * Add the parent theme style
@@ -107,3 +108,19 @@ function newsmatic_child_theme_locale(): void
     load_child_theme_textdomain( 'explain', get_stylesheet_directory() . '/languages' );
 }
 
+/**
+ * @param $links
+ *
+ * @return void
+ *
+ * Deactivate self pingbacks
+ */
+function no_self_ping(&$links): void
+{
+    $home = get_option('home');
+    foreach ($links as $l => $link) {
+        if (0 === strpos($link, $home)) {
+            unset($links[$l]);
+        }
+    }
+}
