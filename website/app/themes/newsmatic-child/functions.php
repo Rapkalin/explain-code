@@ -1,16 +1,19 @@
 <?php
 
+use Newsmatic\CustomizerDefault as ND;
+
 add_action( 'wp_enqueue_scripts', 'newsmatic_enqueue_styles');
 add_action( 'wp_enqueue_scripts', 'newsmatic_child_register_style', 11 );
 add_action( 'after_switch_theme', 'set_newsmatic_child_theme_mods' );
 add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_update_parent_action', 11 );
+add_action( 'after_setup_theme', 'newsmatic_child_theme_locale' );
 
 /**
  * Add the parent theme style
  *
  * @return void
  */
-function newsmatic_enqueue_styles () : void 
+function newsmatic_enqueue_styles(): void
 {
     $parenthandle = 'newsmatic-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
     $theme = wp_get_theme();
@@ -25,7 +28,7 @@ function newsmatic_enqueue_styles () : void
  *
  * @return void
  */
-function newsmatic_child_register_style () : void
+function newsmatic_child_register_style(): void
 {
     wp_register_style( 'newsmatic-child-style', get_stylesheet_uri());
     wp_enqueue_style( 'newsmatic-child-style');
@@ -51,7 +54,7 @@ function newsmatic_child_register_style () : void
  *
  * @return void
  */
-function set_newsmatic_child_theme_mods () : void
+function set_newsmatic_child_theme_mods(): void
 {
     $parent_theme = get_template_directory();
     $theme_parent_slug = basename($parent_theme);
@@ -66,11 +69,25 @@ function set_newsmatic_child_theme_mods () : void
 }
 
 /**
+ * Remove parent functions to override them
+ *
+ * @return void
+ */
+function newsmatic_update_parent_action(): void
+{
+    # Remove the newsmatic's theme footer function to overide it
+    if (function_exists('newsmatic_bottom_footer_copyright_part')) {
+        remove_action( 'newsmatic_botttom_footer_hook', 'newsmatic_bottom_footer_copyright_part', 20 );
+        add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_copyright_part', 20 );
+    }
+}
+
+/**
  * Add a copyright in the footer
  *
  * @return void
  */
-function newsmatic_child_bottom_footer_copyright_part() : void
+function newsmatic_child_bottom_footer_copyright_part(): void
 {
     ?>
     <div class="site-info">
@@ -80,14 +97,13 @@ function newsmatic_child_bottom_footer_copyright_part() : void
 }
 
 /**
- * Remove parent functions to override them
- *
  * @return void
+ *
+ * Load translation files from child and parent themes
  */
-function newsmatic_update_parent_action () : void
+function newsmatic_child_theme_locale(): void
 {
-    if (function_exists('newsmatic_bottom_footer_copyright_part')) {
-        remove_action( 'newsmatic_botttom_footer_hook', 'newsmatic_bottom_footer_copyright_part', 20 );
-        add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_copyright_part', 20 );
-    }
+    load_child_theme_textdomain( 'newsmatic', get_stylesheet_directory() . '/languages' );
+    load_child_theme_textdomain( 'explain', get_stylesheet_directory() . '/languages' );
 }
+
