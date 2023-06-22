@@ -68,8 +68,10 @@ php scripts/sync-uploads.php
 ### TRANSLATIONS
 The explain-code.pot file is the website's base language 
 To add translation:
-- Download and open the [poedit](https://poedit.net/) software
+- Download and open the free [poedit](https://poedit.net/) software
+- 
 - If the translation file doesn't exist in the language you want, create it with the poedit software
 - Translation functions to use:
-  - _e: displays the translation
-  - _n: displays the plural
+  - __: Translate
+  - _e: Translate and displays 
+  - _n: Translate and displays the plural
