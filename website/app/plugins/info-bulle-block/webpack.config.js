@@ -1,7 +1,14 @@
+/*
+	The config of the plugin to use react/jsx
+	Minimal config to work with jsx and webpack
+ */
 const path = require('path');
 
-module.export = {
+module.exports = {
+    /* The entry point of our jsx index file */
     entry: './blocks/info-bulle-block/index.jsx',
+
+    /* Defines where the min file will be outputed and what file to generate */
     output : {
         path: path.resolve(__dirname, 'block/info-bulle-block'),
         filename: 'index.js'
