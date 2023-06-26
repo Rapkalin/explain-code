@@ -46,3 +46,6 @@ website/.env
 .vscode/
 .phpunit.result.cache
 tags
+
+exports/*
+!exports/.gitkeep
