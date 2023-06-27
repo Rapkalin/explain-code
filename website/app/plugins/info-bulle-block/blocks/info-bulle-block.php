@@ -6,13 +6,17 @@
  * @package info-bulle-block
  */
 
+add_action( 'init', 'info_bulle_block_block_init' );
+
 /**
  * Registers all block assets so that they can be enqueued through Gutenberg in
  * the corresponding context.
  *
+ * @return void
  * @see https://wordpress.org/gutenberg/handbook/designers-developers/developers/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
-function info_bulle_block_block_init() {
+function info_bulle_block_block_init() : void
+{
 	// Skip block registration if Gutenberg is not enabled/merged.
 	if ( ! function_exists( 'register_block_type' ) ) {
 		return;
@@ -24,9 +28,10 @@ function info_bulle_block_block_init() {
 		'info-bulle-block-block-editor',
 		plugins_url( $index_js, __FILE__ ),
 		[
-			'wp-blocks',
+			'wp-editor',
 			'wp-i18n',
 			'wp-element',
+            'wp-components'
 		],
 		filemtime( "{$dir}/{$index_js}" )
 	);
@@ -51,7 +56,29 @@ function info_bulle_block_block_init() {
 		'editor_script' => 'info-bulle-block-block-editor',
 		'editor_style'  => 'info-bulle-block-block-editor',
 		'style'         => 'info-bulle-block-block',
+        'attributes'    => [
+            'content' => ['type' => 'string'],
+            'color' => ['type' => 'string', 'default' => 'black'],
+            'backgroundColor' => ['type' => 'string', 'default' => '#E6F4FA'],
+        ],
+        'render_callback' => 'info_bulle_render'
 	] );
 }
 
-add_action( 'init', 'info_bulle_block_block_init' );
+/**
+ * @param array $attributes
+ *
+ * @return string|void
+ */
+function info_bulle_render(array $attributes) : string
+{
+    if(isset($attributes['content'])) {
+        return <<<HTML
+            <div class="info-bulle-component" style="background-color: {$attributes['backgroundColor']}; color:{$attributes['color']}">
+                {$attributes['content']}
+            </div>
+        HTML;
+    }
+
+    return "";
+}

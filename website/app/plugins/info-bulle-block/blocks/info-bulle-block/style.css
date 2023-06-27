@@ -9,3 +9,20 @@
 	color: #fff;
 	padding: 2px;
 }
+
+.info-bulle-component {
+	border: none !important;
+	border-radius: 5px;
+	box-sizing: content-box;
+	height: auto;
+	padding: 10px 10px 10px 30px;
+}
+
+.info-bulle-inspector {
+	background-color: #eaeaea;
+	padding: 5px 0px 0px 0px;
+}
+
+[aria-checked="true"] {
+	background-color: gainsboro;
+}
