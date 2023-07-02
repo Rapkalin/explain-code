@@ -58,7 +58,7 @@ function info_bulle_block_block_init() : void
 		'style'         => 'info-bulle-block-block',
         'attributes'    => [
             'content' => ['type' => 'string'],
-            'color' => ['type' => 'string', 'default' => 'black'],
+            'bulleMode' => ['type' => 'string', 'default' => 'information'],
             'backgroundColor' => ['type' => 'string', 'default' => '#E6F4FA'],
         ],
         'render_callback' => 'info_bulle_render'
@@ -74,7 +74,10 @@ function info_bulle_render(array $attributes) : string
 {
     if(isset($attributes['content'])) {
         return <<<HTML
-            <div class="info-bulle-component" style="background-color: {$attributes['backgroundColor']}; color:{$attributes['color']}">
+            <div 
+            class="info-bulle-component icon-{$attributes['bulleMode']}" 
+            style="background-color: {$attributes['backgroundColor']};"
+            >
                 {$attributes['content']}
             </div>
         HTML;

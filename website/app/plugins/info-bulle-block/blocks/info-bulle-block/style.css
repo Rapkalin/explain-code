@@ -6,7 +6,6 @@
 
 .wp-block-info-bulle-block-info-bulle-block {
 	background-color: #000;
-	color: #fff;
 	padding: 2px;
 }
 
@@ -25,4 +24,24 @@
 
 [aria-checked="true"] {
 	background-color: gainsboro;
+}
+
+div.icon-information::after {
+	color: black;
+	content:url('images/information.svg');
+	position: absolute;
+	top: -0.7em;
+	left: -0.3em;
+}
+
+div.icon-warning::after {
+	color: black;
+	content:url('images/warning.svg');
+	position: absolute;
+	top: -0.7em;
+	left: -0.3em;
+}
+
+div.icon-see-also {
+	color: white;
 }

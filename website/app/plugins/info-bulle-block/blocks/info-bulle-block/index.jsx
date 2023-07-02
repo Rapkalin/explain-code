@@ -10,8 +10,6 @@ const { registerBlockType } = wp.blocks
 */
 const { useBlockProps, RichText, InspectorControls } = wp.blockEditor
 const { MenuGroup, MenuItemsChoice } = wp.components
-const { useState } = wp.element
-
 
 registerBlockType('info-bulle-block/info-bulle-block', {
 	/* The plugin title in the admin */
@@ -27,30 +25,32 @@ registerBlockType('info-bulle-block/info-bulle-block', {
 	edit ({ className, attributes, setAttributes }) {
 		const choices = [
 			{
-				value: '#FDEFE1',
-				label: 'Orange',
+				value: 'information',
+				label: 'Information',
 			},
 			{
-				value: '#E6F4FA',
-				label: 'Blue',
+				value: 'warning',
+				label: 'Warning',
+			},
+			{
+				value: 'see-also',
+				label: 'See also',
 			},
 		];
 		const style = {
-			'color': attributes.color,
 			'background-color': attributes.backgroundColor,
 		};
-		className += ' info-bulle-component';
+
+		className += ' info-bulle-component icon-' + attributes.bulleMode;
 
 		return <div className={ className } style={style}>
 			<InspectorControls>
-				<MenuGroup label="Predefine settings" className="info-bulle-inspector test">
+				<MenuGroup label="Predefine settings" className="info-bulle-inspector">
 					<MenuItemsChoice
 						choices={ choices }
-						value={ attributes.backgroundColor }
+						value={ attributes.bulleMode }
 						onSelect={
-							( newMode ) => setAttributes(
-								{ backgroundColor: newMode }
-							)
+							( newMode ) => setAttributes({backgroundColor: setBackgroundColor(newMode), bulleMode: newMode} )
 						}
 					/>
 				</MenuGroup>
@@ -73,3 +73,18 @@ registerBlockType('info-bulle-block/info-bulle-block', {
 		return null
 	}
 })
+
+function setBackgroundColor(newMode)
+{
+	if (typeof newMode === 'string' || newMode instanceof String) {
+		console.log('inside: ', newMode)
+		switch (newMode) {
+			case "information":
+				return'#E6F4FA';
+			case "warning":
+				return '#FDEFE1';
+			case "see-also":
+				return '#2E3844';
+		}
+	}
+}
