@@ -4,8 +4,104 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+
+/**
+ FRONT PART
+ */
 .wp-block-info-bulle-block-info-bulle-block {
 	background-color: #000;
-	color: #fff;
 	padding: 2px;
+}
+
+.info-bulle-component {
+	border-radius: 5px;
+	box-sizing: content-box;
+	height: auto;
+	padding: 10px 10px 10px 30px;
+}
+
+.newsmatic_dark_mode div.info-bulle-component-front {
+	color: #404040;
+}
+
+.info-bulle-inspector {
+	background-color: #eaeaea;
+	padding: 5px 0px 0px 0px;
+}
+
+span.icon-information::before {
+	content: url(images/information.svg);
+	position: relative;
+	top: 1.5em;
+	left: -1em;
+}
+
+span.icon-warning::before {
+	content: url(images/warning.svg);
+	position: relative;
+	top: 1.5em;
+	left: -1em;
+}
+
+span.icon-alert::before {
+	content: url(images/alert.svg);
+	position: relative;
+	top: 1.5em;
+	left: -1em;
+}
+
+.margin-warning, .margin-information, .margin-alert {
+	margin-top: -18px;
+}
+
+div.mode-see-also {
+	color: white !important;
+	margin-top: 20px
+}
+
+/**
+ ADMIN PART
+ */
+
+[aria-checked="true"] {
+	background-color: gainsboro;
+}
+
+.info-bulle-component-back {
+	border: none !important;
+	border-radius: 5px;
+	box-sizing: content-box;
+	height: auto;
+	padding: 10px 10px 10px 30px;
+}
+
+.icon-see-also-back {
+	color: white;
+}
+
+.icon-warning-back:before {
+	content: url(images/warning.svg);
+	position: absolute;
+	top: -0.8em;
+	left: -1em;
+}
+
+.icon-information-back:before {
+	content: url(images/information.svg);
+	position: absolute;
+	top: -0.8em;
+	left: -1em;
+}
+
+.icon-alert-back:before {
+	content: url(images/alert.svg);
+	position: absolute;
+	top: -0.8em;
+	left: -1em;
+}
+
+.disable-read-also-span-back {
+	pointer-events: none;
+	color: #F47D26;
+	font-weight: bold;
 }

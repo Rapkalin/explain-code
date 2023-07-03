@@ -48,3 +48,10 @@ website/.env
 .vscode/
 .phpunit.result.cache
 tags
+
+# Database exports
+exports/*
+!exports/.gitkeep
+
+# Node modules
+node_modules/
