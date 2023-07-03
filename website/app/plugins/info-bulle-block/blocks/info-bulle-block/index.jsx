@@ -33,6 +33,10 @@ registerBlockType('info-bulle-block/info-bulle-block', {
 				label: 'Warning',
 			},
 			{
+				value: 'alert',
+				label: 'Alert',
+			},
+			{
 				value: 'see-also',
 				label: 'See also',
 			},
@@ -41,7 +45,8 @@ registerBlockType('info-bulle-block/info-bulle-block', {
 			'background-color': attributes.backgroundColor,
 		};
 
-		className += ' info-bulle-component icon-' + attributes.bulleMode;
+		className += ' info-bulle-component-back icon-' + attributes.bulleMode + '-back';
+		const readAlso = (attributes.bulleMode === 'see-also' && (attributes.content === ''|| attributes.content === undefined)) ? "<span class=\"disable-read-also-span-back\">Lire aussi : </span>" : '';
 
 		return <div className={ className } style={style}>
 			<InspectorControls>
@@ -57,10 +62,10 @@ registerBlockType('info-bulle-block/info-bulle-block', {
 			</InspectorControls>
 
 			<RichText
-				placeholder={ 'Placeholder' } // Display this text before any content has been added by the user
+				placeholder={ 'Votre texte...' } // Display this text before any content has been added by the user
 				// allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] } // Allow the content to be made bold or italic, but do not allow other formatting options
 				onChange={ ( content ) => setAttributes( { content } ) } // Store updated content as a block attribute
-				value={ attributes.content }
+				value={ readAlso + (attributes.content ?? '') }
 			/>
 		</div>
 
@@ -82,7 +87,9 @@ function setBackgroundColor(newMode)
 			case "information":
 				return'#E6F4FA';
 			case "warning":
-				return '#FDEFE1';
+				return '#ffe1c4';
+			case "alert":
+				return '#ffc9d0';
 			case "see-also":
 				return '#2E3844';
 		}
