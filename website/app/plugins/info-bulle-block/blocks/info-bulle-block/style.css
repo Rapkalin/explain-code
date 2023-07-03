@@ -17,6 +17,14 @@
 	padding: 10px 10px 10px 30px;
 }
 
+.info-bulle-component-front {
+	margin-bottom: 15px;
+}
+
+.info-bulle-component-front > p {
+	margin: unset;
+}
+
 .info-bulle-inspector {
 	background-color: #eaeaea;
 	padding: 5px 0px 0px 0px;

@@ -75,7 +75,7 @@ function info_bulle_render(array $attributes) : string
     if(isset($attributes['content'])) {
         return <<<HTML
             <div 
-            class="info-bulle-component icon-{$attributes['bulleMode']}" 
+            class="info-bulle-component info-bulle-component-front icon-{$attributes['bulleMode']}" 
             style="background-color: {$attributes['backgroundColor']};"
             >
                 {$attributes['content']}
