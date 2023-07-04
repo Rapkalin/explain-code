@@ -67,24 +67,28 @@ function info_bulle_block_block_init() : void
 
 /**
  * @param array $attributes
+ * @param string $content
  *
- * @return string|void
+ * @return string
  */
-function info_bulle_render(array $attributes) : string
+function info_bulle_render(array $attributes, string $content) : string
 {
-    if(isset($attributes['content']) && !empty($attributes['content'])) {
+    if(isset($content) && !empty($content))  {
         $span = '';
+        $span_see_also = '';
         if ($attributes['bulleMode'] !== "see-also") {
-            $span = "<span class=\"icon-{$attributes['bulleMode']}\" >
-            </span>";
+            $span = "<span class=\"icon-{$attributes['bulleMode']}\" ></span>";
+        } else {
+            $span_see_also = "<span class=\"icon-{$attributes['bulleMode']} disable-read-also-span-back\" >Lire aussi : </span>";
         }
+
         return <<<HTML
         <div class="margin-{$attributes['bulleMode']}">
             {$span}
             <div 
                 class="info-bulle-component-front info-bulle-component mode-{$attributes['bulleMode']}"
                 style="background-color: {$attributes['backgroundColor']};"
-            >{$attributes['content']}</div>
+            >$span_see_also $content</div>
         </div>
         HTML;
     }
