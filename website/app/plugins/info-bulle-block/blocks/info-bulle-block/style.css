@@ -5,9 +5,7 @@
  */
 
 
-/**
- FRONT PART
- */
+/* FRONT PART */
 .wp-block-info-bulle-block-info-bulle-block {
 	background-color: #000;
 	padding: 2px;
@@ -18,6 +16,15 @@
 	box-sizing: content-box;
 	height: auto;
 	padding: 10px 10px 10px 30px;
+}
+
+div.info-bulle-component-front {
+	display: flex;
+}
+
+div.info-bulle-component-front p {
+	margin-block-end: unset;
+	margin-block-start: unset;
 }
 
 .newsmatic_dark_mode div.info-bulle-component-front {
@@ -59,10 +66,17 @@ div.mode-see-also {
 	margin-top: 20px
 }
 
-/**
- ADMIN PART
- */
+/* To align see also span and <p> */
+.block-editor-block-list__layout p {
+	min-width: 1px;
+	margin-block-start: unset;
+	margin-block-end: unset;
+}
 
+
+/* ADMIN PART */
+
+/* The background color for the info bulle editor menu */
 [aria-checked="true"] {
 	background-color: gainsboro;
 }
@@ -76,6 +90,7 @@ div.mode-see-also {
 }
 
 .icon-see-also-back {
+	display: flex;
 	color: white;
 }
 
@@ -101,7 +116,7 @@ div.mode-see-also {
 }
 
 .disable-read-also-span-back {
-	pointer-events: none;
 	color: #F47D26;
 	font-weight: bold;
+	margin-right: 5px;
 }
