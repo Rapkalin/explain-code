@@ -8,8 +8,9 @@ const { registerBlockType } = wp.blocks
 * Include module for the register block
 * Don't forget to also add the needed module in the info-bulle-block.php file
 */
-const { useBlockProps, RichText, InspectorControls } = wp.blockEditor
+const { InnerBlocks, useBlockProps, RichText, InspectorControls } = wp.blockEditor
 const { MenuGroup, MenuItemsChoice } = wp.components
+const InnerBlocksDiv = <InnerBlocks/>
 
 registerBlockType('info-bulle-block/info-bulle-block', {
 	/* The plugin title in the admin */
@@ -61,6 +62,8 @@ registerBlockType('info-bulle-block/info-bulle-block', {
 				</MenuGroup>
 			</InspectorControls>
 
+			<InnerBlocks/>
+			
 			<RichText
 				placeholder={ 'Votre texte...' } // Display this text before any content has been added by the user
 				// allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] } // Allow the content to be made bold or italic, but do not allow other formatting options
