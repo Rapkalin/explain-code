@@ -39,7 +39,8 @@
         "wpackagist-plugin/akismet":"^5.1",
         "wpackagist-plugin/imagemagick-engine":"^1.7",
         "wpackagist-plugin/wordpress-seo":"^20.9",
-        "wpackagist-plugin/jetpack":"^12.3-a"
+        "wpackagist-plugin/jetpack":"^12.3-a",
+        "wpackagist-plugin/cookie-law-info":"^3.1"
     },
 
     "require-dev": {

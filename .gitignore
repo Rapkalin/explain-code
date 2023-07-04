@@ -39,6 +39,7 @@ website/app/plugins/imagemagick-engine
 website/app/plugins/jetpack
 website/app/plugins/w3-total-cache
 website/app/plugins/wordpress-seo
+website/app/plugins/cookie-law-info
 
 # Global gitignore setup
 /composer.lock
