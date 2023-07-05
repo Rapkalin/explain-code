@@ -6,10 +6,11 @@ add_action( 'wp_enqueue_scripts', 'newsmatic_enqueue_styles');
 add_action( 'wp_enqueue_scripts', 'newsmatic_child_register_style', 11 );
 add_action( 'after_switch_theme', 'set_newsmatic_child_theme_mods' );
 add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_update_parent_action', 11 );
+add_action('newsmatic_header__menu_section_hook', 'newsmatic_update_parent_action', 11);
+add_action('newsmatic_child_404_header__menu_section_hook', 'set_newsmatic_child_404_menu_header_section');
+add_action('newsmatic_child_404_header__section_hook', 'set_newsmatic_child_404_toggle_search_header_section');
 add_action( 'after_setup_theme', 'newsmatic_child_theme_locale' );
 add_action( 'pre_ping', 'no_self_ping' );
-add_action('newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 10);
-add_action('newsmatic_child_header__menu_section_hook', 'newsmatic_update_parent_action', 11);
 
 /**
  * Add the parent theme style
@@ -87,17 +88,13 @@ function newsmatic_update_parent_action(): void
         add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_copyright_part', 20 );
     }
 
-    # Remove menu for 404
-    if(is_404() && function_exists('newsmatic_remove_menu_header_404')) {
-        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
-        add_action( 'newsmatic_child_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
-
-        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_search_part', 50 );
-        add_action( 'newsmatic_child_header__menu_section_hook', 'newsmatic_header_search_part', 50 );
-
+    # Remove native menu for 404
+    if(is_404() && function_exists('newsmatic_header_menu_part')) {
         remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
-        add_action( 'newsmatic_child_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
+        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_search_part', 50 );
+        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
     }
+
 }
 
 /**
@@ -142,26 +139,13 @@ function no_self_ping(&$links): void
     }
 }
 
-/**
- * @return null
- */
-function newsmatic_header_menu_part()
+function set_newsmatic_child_404_menu_header_section()
 {
-   return null;
+    add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
 }
 
-/**
- * @return null
- */
-function newsmatic_header_search_part()
+function set_newsmatic_child_404_toggle_search_header_section()
 {
-    return null;
-}
-
-/**
- * @return null
- */
-function newsmatic_header_theme_mode_icon_part()
-{
-    return null;
+    add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
+    add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part', 50 );
 }

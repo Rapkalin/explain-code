@@ -13,25 +13,24 @@ get_header();
         <main id="primary" class="site-main">
             <div class="newsmatic-container">
                     <div class="primary-content">
-                        <section class="error-404-child not-found-child">
-                            <div class="post-inner-wrapper">
-<!--
-                                <div class="page-footer">
-                                    <a class="button-404" href="<?php /*echo esc_url( home_url() ); */?>"><?php /*echo esc_html__( 'Go back to home', 'explain' ); */?></a>
-                                </div>-->
+                        <section class="error-404-child">
+                            <div class="post-inner-wrapper-404">
 
-                                <?php
-                                    do_action( 'newsmatic_child_header__menu_section_hook' );
-                                    do_action( 'newsmatic_child_header__menu_section_hook' );
-                                ?>
-
-                                <header class="page-header-404-child">
-                                    <h1 class="page-title newsmatic-block-title"><?php echo esc_html__( '404 Not Found', 'explain' ); ?></h1>
+                                <header class="page-header-404-child site-header layout--default layout--on">
+                                    <div class="explain-code-to-me-404" >
+                                        <img id="lost-404-gif" src="/app/themes/newsmatic-child/images/explain-code-to-me-404.gif" alt="">
+                                    </div>
+                                    <h1 class="main-header page-title-404 newsmatic-block-title"><?php echo esc_html__( '404 Not Found', 'explain' ); ?></h1>
                                     <p><?php echo esc_html__( 'Wouuupsy, looks like you got lost!', 'explain' ); ?></p>
+                                    <?php
+                                        do_action( 'newsmatic_child_404_header__menu_section_hook' );
+                                    ?>
+                                    <div>
+                                        <?php echo get_search_form(); ?>
+                                    </div>
                                 </header><!-- .page-header -->
 
                                 <div class="page-content-404-child">
-                                    <div class="explain-code-to-me-404"></div>
                                     <?php
                                     $error_page_image = ND\newsmatic_get_customizer_option( 'error_page_image' );
                                     if( $error_page_image != 0 ) {

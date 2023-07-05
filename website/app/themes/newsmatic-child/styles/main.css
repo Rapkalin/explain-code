@@ -2,6 +2,7 @@
 /* Liens hover */
 body.newsmatic_dark_mode {
     --theme-color-red: darkgray;
+    background-color: #1E2731;
 }
 
 /* News carrousel */
