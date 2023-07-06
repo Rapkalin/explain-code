@@ -2,12 +2,29 @@
 
 use Newsmatic\CustomizerDefault as ND;
 
-add_action( 'wp_enqueue_scripts', 'newsmatic_enqueue_styles');
+/* Load styles and scripts */
+add_action( 'wp_enqueue_scripts', 'newsmatic_enqueue_styles' );
 add_action( 'wp_enqueue_scripts', 'newsmatic_child_register_style', 11 );
-add_action( 'after_switch_theme', 'set_newsmatic_child_theme_mods' );
-add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_update_parent_action', 11 );
+
+/* Load internationalisation / translations */
 add_action( 'after_setup_theme', 'newsmatic_child_theme_locale' );
+
+/* Retrieve mods from parent to child theme */
+add_action( 'after_switch_theme', 'set_newsmatic_child_theme_mods' );
+
+/* Remove self pings */
 add_action( 'pre_ping', 'no_self_ping' );
+
+/* Remove parent theme actions */
+add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_update_parent_action', 11 );
+add_action( 'newsmatic_header__menu_section_hook', 'newsmatic_update_parent_action', 11 );
+add_action( 'newsmatic_header__site_branding_section_hook', 'newsmatic_update_parent_action', 4 );
+
+/* Update parent theme */
+add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
+add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
+add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part', 50  );
+
 
 /**
  * Add the parent theme style
@@ -48,6 +65,9 @@ function newsmatic_child_register_style(): void
 
     wp_register_style( 'newsmatic-child-style-main', get_stylesheet_directory_uri() . '/styles/main.css' );
     wp_enqueue_style( 'newsmatic-child-style-main');
+
+    wp_register_style( 'newsmatic-child-style-404', get_stylesheet_directory_uri() . '/styles/404.css' );
+    wp_enqueue_style( 'newsmatic-child-style-404');
 }
 
 /**
@@ -80,6 +100,18 @@ function newsmatic_update_parent_action(): void
     if (function_exists('newsmatic_bottom_footer_copyright_part')) {
         remove_action( 'newsmatic_botttom_footer_hook', 'newsmatic_bottom_footer_copyright_part', 20 );
         add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_copyright_part', 20 );
+    }
+
+    # Remove native menu for 404
+    if(is_404() && function_exists('newsmatic_header_menu_part')) {
+        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
+        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_search_part', 50 );
+        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
+    }
+
+    # Remove social media part to center logo properly
+    if(function_exists('newsmatic_top_header_social_part')) {
+        remove_action('newsmatic_header__site_branding_section_hook', 'newsmatic_top_header_social_part', 5);
     }
 }
 
@@ -124,3 +156,4 @@ function no_self_ping(&$links): void
         }
     }
 }
+

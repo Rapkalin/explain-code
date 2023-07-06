@@ -2,6 +2,21 @@
 /* Liens hover */
 body.newsmatic_dark_mode {
     --theme-color-red: darkgray;
+    background-color: #1E2731;
+}
+
+/* Hide div to center logo header */
+.header-right-button-wrap {
+    display: none;
+}
+
+/* News carrousel */
+#bottom-full-width-section {
+    --full-width-bottom-section-bk-color: #FFFFFF;
+}
+
+h2.newsmatic-block-title span::after, h2.newsmatic-widget-title span::after, h2.widget-title span:after {
+    background: none;
 }
 
 /* Change link style */
