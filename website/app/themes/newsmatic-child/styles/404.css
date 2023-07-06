@@ -1,4 +1,7 @@
 /* 404 */
+.error404 sub {
+    color: white;
+}
 
 #post-inner-wrapper-404 {
     display: flex;
