@@ -2,7 +2,7 @@
 
 use Newsmatic\CustomizerDefault as ND;
 
-add_action ( 'init', 'newsmatic_update_parent_action');
+add_action ( 'newsmatic_before_main_content', 'newsmatic_child_author_hook');
 
 /* Load styles and scripts */
 add_action( 'wp_enqueue_scripts', 'newsmatic_enqueue_styles' );
@@ -27,9 +27,9 @@ add_action( 'newsmatic_header__site_branding_section_hook', 'newsmatic_child_hea
 add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_hook', 11 );
 
 /* Update parent theme */
-add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
-add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
-add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part', 50  );
+add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_menu_part' );
+add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part' );
+add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part' );
 
 
 /**
@@ -103,7 +103,7 @@ function set_newsmatic_child_theme_mods(): void
  *
  * @return void
  */
-function newsmatic_update_parent_action(): void
+function newsmatic_child_author_hook(): void
 {
     /* Update author template */
     if (function_exists('newsmatic_category_archive_author_html')) {

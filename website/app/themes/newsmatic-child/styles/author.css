@@ -7,6 +7,10 @@
     color: whitesmoke;
 }
 
-body .author-desc {
+.author-desc {
     color: black;
+}
+
+.newsmatic-breadcrumb-wrap {
+    display: none;
 }
