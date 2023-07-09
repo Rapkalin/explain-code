@@ -14,8 +14,7 @@
 }
 
 /* Main content block width */
-body.right-sidebar #theme-content .row .primary-content,
-body.left-sidebar #theme-content .row .primary-content {
+.primary-content-search-child {
     max-width: 100%;
     flex: unset;
 }
