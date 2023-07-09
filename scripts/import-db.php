@@ -57,6 +57,18 @@ if (file_exists('exports/' . $filename)) {
     try {
         $pdo->beginTransaction();
 
+        $stmt = $pdo->query('SELECT * FROM wp_options WHERE option_name="active_plugins"');
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $active_plugins = unserialize($result["option_value"]);
+        $key_to_delete = array_search("jetpack/jetpack.php", $active_plugins);
+        unset($active_plugins[$key_to_delete]);
+        $active_plugins = array_values($active_plugins);
+        $serialized_array = serialize($active_plugins);
+
+        $stmt = $pdo->prepare('UPDATE wp_options SET option_value = replace(option_value, ?, ?) WHERE option_name = "active_plugins";');
+        $stmt->execute([$result["option_value"], $serialized_array]);
+
+
         $stmt = $pdo->prepare('UPDATE wp_posts SET guid = replace(guid, ?, ?);');
         $stmt->execute([getenv('PROD_SITEURL'), getenv('WP_SITEURL')]);
 
