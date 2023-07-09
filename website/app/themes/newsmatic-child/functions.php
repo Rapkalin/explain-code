@@ -32,13 +32,11 @@ add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_hea
 add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part' );
 
 // Override header title to remove the separator
-add_filter( 'pre_get_document_title', 'newsmatic_child_title', 99 );
-function newsmatic_child_title(): string
+add_filter( 'pre_get_document_title', 'newsmatic_child_title', 999, 1 );
+function newsmatic_child_title($title): string
 {
-    // Clean title in header
-    return sprintf("%s", get_bloginfo('name'));
+    return rtrim($title, " -");
 }
-
 
 /**
  * Add the parent theme style
