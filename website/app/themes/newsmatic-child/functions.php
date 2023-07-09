@@ -31,6 +31,12 @@ add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_m
 add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part' );
 add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part' );
 
+// Override header title to remove the separator
+add_filter( 'pre_get_document_title', 'newsmatic_child_title', 999, 1 );
+function newsmatic_child_title($title): string
+{
+    return rtrim($title, " -");
+}
 
 /**
  * Add the parent theme style
