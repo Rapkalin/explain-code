@@ -19,7 +19,7 @@ get_header();
 		do_action( 'newsmatic_before_main_content' );
 	?>
 	<main id="primary" class="site-main">
-		<div class="newsmatic-container">
+		<div id="newsmatic-container-search-child" class="newsmatic-container">
            	<div class="row">
 				<div class="primary-content-search-child">
 					<div class="news-list layout--two">

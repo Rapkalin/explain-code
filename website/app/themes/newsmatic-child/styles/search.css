@@ -63,3 +63,31 @@
 .primary-content-search-child {
     margin-top: 3em;
 }
+
+/* Search content none */
+.search .row .primary-content-search-child {
+    text-align: center;
+}
+
+.search #newsmatic-container-search-child .row {
+    justify-content: center;
+}
+
+.search .newsmatic-block-title sub,
+.archive .page-title, .search .page-title {
+    bottom: unset;
+    margin-bottom: 0.5em;
+}
+
+.search #theme-content {
+    margin-bottom: 5em;
+}
+
+.search input[type="submit"] {
+    border: none;
+    background-color: var(--theme-color-red);
+    color: var(--white-text);
+    vertical-align: top;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
