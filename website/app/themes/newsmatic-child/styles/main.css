@@ -15,7 +15,9 @@ body.newsmatic_dark_mode {
     --full-width-bottom-section-bk-color: #FFFFFF;
 }
 
-h2.newsmatic-block-title span::after, h2.newsmatic-widget-title span::after, h2.widget-title span:after {
+h2.newsmatic-block-title span::after,
+h2.newsmatic-widget-title span::after,
+h2.widget-title span:after {
     background: none;
 }
 
@@ -46,7 +48,10 @@ a:visited {
 
 
 /* Change link color darkmode */
-.newsmatic_dark_mode .newsmatic-title-two .post-title a, .newsmatic_dark_mode .newsmatic-title-two .news-carousel .post-title a, .newsmatic_dark_mode .newsmatic-title-two .widget_block ul li a, .newsmatic_dark_mode .newsmatic-title-two .widget_nav_menu ul li a {
+.newsmatic_dark_mode .newsmatic-title-two .post-title a,
+.newsmatic_dark_mode .newsmatic-title-two .news-carousel .post-title a,
+.newsmatic_dark_mode .newsmatic-title-two .widget_block ul li a,
+.newsmatic_dark_mode .newsmatic-title-two .widget_nav_menu ul li a {
     color: #8aa5ad;
 }
 
@@ -75,7 +80,33 @@ a:visited {
     color: whitesmoke;
 }
 
-body .entry-content a:hover, body .post-standard__content a:hover, body .format-standard .entry-content a:hover, body .comment-content a:hover, .wp-block-latest-comments a:hover, .widget_text a:hover {
+body .entry-content a:hover, body .post-standard__content a:hover,
+body .format-standard .entry-content a:hover,
+body .comment-content a:hover,
+.wp-block-latest-comments a:hover,
+.widget_text a:hover {
     color: #4A707C;
     text-decoration-line: none !important;
 }
+
+/* Comment textarea input */
+.newsmatic_dark_mode .comment-form .comment-form-comment textarea,
+.newsmatic_dark_mode form.comment-form p input {
+    background: #2E3844;
+}
+
+/* Comment submit button */
+.comment-form .form-submit input {
+    --dark-bk-color: #2E3844;
+}
+
+/* Change pagination style */
+.pagination span.current {
+    background-color: #2E3844;
+}
+
+.pagination span, .pagination a {
+    --theme-color-red: #2E3844;
+    color: #2E3844;
+}
+

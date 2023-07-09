@@ -83,6 +83,9 @@ function newsmatic_child_register_style(): void
 
     wp_register_style( 'newsmatic-child-style-404', get_stylesheet_directory_uri() . '/styles/404.css' );
     wp_enqueue_style( 'newsmatic-child-style-404');
+
+    wp_register_style( 'newsmatic-child-style-search', get_stylesheet_directory_uri() . '/styles/search.css' );
+    wp_enqueue_style( 'newsmatic-child-style-search');
 }
 
 /**
