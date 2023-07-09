@@ -64,7 +64,8 @@
         display: none;
     }
 
-    nav.main-navigation ul.menu, nav.main-navigation ul.nav-menu {
+    nav.main-navigation ul.menu,
+    nav.main-navigation ul.nav-menu {
         background-color: var(--mobile-menu-bk-color);
         z-index: 10;
         padding: 10px 30px;
@@ -74,12 +75,14 @@
         display: contents;
     }
 
-    nav.main-navigation ul.menu li, nav.main-navigation ul.nav-menu li {
+    nav.main-navigation ul.menu li,
+    nav.main-navigation ul.nav-menu li {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
-    nav.main-navigation ul.menu li a, nav.main-navigation ul.nav-menu li a {
+    nav.main-navigation ul.menu li a,
+    nav.main-navigation ul.nav-menu li a {
         padding: 9px 15px;
     }
 

@@ -17,11 +17,16 @@ body .site-branding img.custom-logo {
     --menu-bk-color: #1E2731;
 }
 
-.main-navigation .menu li.current-menu-item > a, .main-navigation .nav.menu li.current-menu-item > a, .main-navigation .menu li.current_page_item > a, .main-navigation .nav.menu li.current_page_item > a {
+.main-navigation .menu li.current-menu-item > a,
+.main-navigation .nav.menu li.current-menu-item > a,
+.main-navigation .menu li.current_page_item > a,
+.main-navigation .nav.menu li.current_page_item > a {
     --menu-color-hover: #fea733;
 }
 
 /* Change menu and sub menu hover color */
-.main-navigation ul.menu ul li a:hover, .main-navigation .menu li a:hover, .main-navigation .nav.menu li a:hover {
+.main-navigation ul.menu ul li a:hover,
+.main-navigation .menu li a:hover,
+.main-navigation .nav.menu li a:hover {
     color: #fea733;
 }

@@ -100,3 +100,13 @@ body .comment-content a:hover,
     --dark-bk-color: #2E3844;
 }
 
+/* Change pagination style */
+.pagination span.current {
+    background-color: #2E3844;
+}
+
+.pagination span, .pagination a {
+    --theme-color-red: #2E3844;
+    color: #2E3844;
+}
+
