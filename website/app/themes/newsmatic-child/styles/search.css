@@ -65,7 +65,7 @@
 }
 
 /* Search content none */
-.search .row .primary-content-search-child {
+.primary-content-search-child section.no-results.not-found {
     text-align: center;
 }
 
