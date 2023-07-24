@@ -17,7 +17,7 @@ get_header();
                         <div id="page-header-404-child" class="site-header layout--default layout--on">
                             <h1 id="page-title-404"><?php echo esc_html__( '404 Not Found', 'explain' ); ?></h1>
                             <div id="error-image-404" >
-                                <img id="lost-404-gif" src="/app/themes/newsmatic-child/images/explain-code-to-me-404.gif" alt="">
+                                <img id="lost-404-gif" src="/app/themes/newsmatic-child/images/explain-code-to-me-404.gif" alt="gif for 404 page">
                             </div>
 
                             <div id="description-toggle">
