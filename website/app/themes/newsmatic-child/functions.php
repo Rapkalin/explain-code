@@ -252,7 +252,7 @@ function newsmatic_child_pagination_fnc(): void
     echo '<div class="pagination">' .
         wp_kses_post(paginate_links([
             'prev_text' => '<i class="fas fa-chevron-left" aria-label="Chevron gauche"></i>',
-            'next_text' => '<i class="fas fa-chevron-right" aria-label="Chevron gauche"></i>',
+            'next_text' => '<i class="fas fa-chevron-right" aria-label="Chevron droit"></i>',
             'type' => 'list'
         ])) .
         '</div>'
