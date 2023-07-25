@@ -31,11 +31,22 @@ add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_m
 add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part' );
 add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part' );
 
+add_action('init', 'nesmatic_child_init_hook');
+
 // Override header title to remove the separator
 add_filter( 'pre_get_document_title', 'newsmatic_child_title', 999, 1 );
 function newsmatic_child_title($title): string
 {
     return rtrim($title, " -");
+}
+
+function nesmatic_child_init_hook(): void
+{
+    # Update pagination button
+    if (function_exists('newsmatic_pagination_fnc')) {
+        remove_action('newsmatic_pagination_link_hook', 'newsmatic_pagination_fnc');
+        add_action('newsmatic_pagination_link_hook', 'newsmatic_child_pagination_fnc');
+    }
 }
 
 /**
@@ -231,6 +242,21 @@ function newsmatic_child_category_archive_author_html(): void
         </div>
     </div>
     <?php
+}
+
+function newsmatic_child_pagination_fnc(): void
+{
+    if( is_null( paginate_links() ) ) {
+        return;
+    }
+    echo '<div class="pagination">' .
+        wp_kses_post(paginate_links([
+            'prev_text' => '<i class="fas fa-chevron-left" aria-label="Chevron gauche"></i>',
+            'next_text' => '<i class="fas fa-chevron-right" aria-label="Chevron gauche"></i>',
+            'type' => 'list'
+        ])) .
+        '</div>'
+    ;
 }
 
 /**
