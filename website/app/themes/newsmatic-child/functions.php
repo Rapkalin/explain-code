@@ -78,8 +78,8 @@ function newsmatic_child_register_style(): void
     wp_register_style( 'newsmatic-child-style-homepage', get_stylesheet_directory_uri() . '/styles/homepage.css' );
     wp_enqueue_style( 'newsmatic-child-style-homepage');
 
-    wp_register_style( 'newsmatic-child-style-main', get_stylesheet_directory_uri() . '/styles/main.css' );
-    wp_enqueue_style( 'newsmatic-child-style-main');
+    wp_register_style( 'newsmatic-child-style-main-child', get_stylesheet_directory_uri() . '/styles/main-child.css' );
+    wp_enqueue_style( 'newsmatic-child-style-main-child');
 
     wp_register_style( 'newsmatic-child-style-404', get_stylesheet_directory_uri() . '/styles/404.css' );
     wp_enqueue_style( 'newsmatic-child-style-404');
