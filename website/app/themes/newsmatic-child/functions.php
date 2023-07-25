@@ -168,7 +168,7 @@ function newsmatic_child_header_search_part(): void
     if(!ND\newsmatic_get_customizer_option( 'header_search_option')) return;
     ?>
     <div class="search-wrap">
-        <button class="search-trigger" name="Rechercher du contenu">
+        <button class="search-trigger" aria-label="Rechercher du contenu" name="Rechercher du contenu">
             <i class="fas fa-search"></i>
         </button>
         <div class="search-form-wrap hide">
