@@ -40,6 +40,7 @@ website/app/plugins/jetpack
 website/app/plugins/w3-total-cache
 website/app/plugins/wordpress-seo
 website/app/plugins/cookie-law-info
+website/app/plugins/performance-lab
 
 # Global gitignore setup
 /composer.lock

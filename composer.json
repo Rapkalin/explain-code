@@ -40,7 +40,8 @@
         "wpackagist-plugin/imagemagick-engine":"^1.7",
         "wpackagist-plugin/wordpress-seo":"^20.11",
         "wpackagist-plugin/jetpack":"^12.3-a",
-        "wpackagist-plugin/cookie-law-info":"^3.1"
+        "wpackagist-plugin/cookie-law-info":"^3.1",
+        "wpackagist-plugin/performance-lab": "^2.5"
     },
 
     "require-dev": {
