@@ -34,13 +34,14 @@
         "wpackagist-plugin/w3-total-cache":"^2.3",
         "wpackagist-plugin/advanced-accordion-block":"^4.6",
         "wpackagist-plugin/code-syntax-block":"^3.1",
-        "wpackagist-plugin/dashboard-widgets-suite":"^3.3",
+        "wpackagist-plugin/dashboard-widgets-suite":"^3.4",
         "wpackagist-plugin/hello-dolly":"^1.7",
-        "wpackagist-plugin/akismet":"^5.1",
+        "wpackagist-plugin/akismet":"^5.2",
         "wpackagist-plugin/imagemagick-engine":"^1.7",
-        "wpackagist-plugin/wordpress-seo":"^20.9",
+        "wpackagist-plugin/wordpress-seo":"^20.11",
         "wpackagist-plugin/jetpack":"^12.3-a",
-        "wpackagist-plugin/cookie-law-info":"^3.1"
+        "wpackagist-plugin/cookie-law-info":"^3.1",
+        "wpackagist-plugin/performance-lab": "^2.5"
     },
 
     "require-dev": {
