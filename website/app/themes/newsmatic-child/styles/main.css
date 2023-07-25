@@ -110,3 +110,6 @@ body .comment-content a:hover,
     color: #2E3844;
 }
 
+main.site-main .primary-content article figure.post-thumb-wrap {
+    padding-bottom: 0;
+}
