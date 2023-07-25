@@ -134,8 +134,19 @@ function newsmatic_child_header_menu_404_hook(): void
 function newsmatic_child_header_branding_hook(): void
 {
     # Remove social media part to center logo properly
-    if(function_exists('newsmatic_top_header_social_part')) {
+    if (function_exists('newsmatic_top_header_social_part')) {
         remove_action('newsmatic_header__site_branding_section_hook', 'newsmatic_top_header_social_part', 5);
+    }
+
+    # Update search and theme buttons
+    if (function_exists('newsmatic_header_search_part')) {
+        remove_action('newsmatic_header__menu_section_hook', 'newsmatic_header_search_part', 50);
+        add_action('newsmatic_header__menu_section_hook', 'newsmatic_child_header_search_part', 50);
+    }
+
+    if (function_exists('newsmatic_header_theme_mode_icon_part')) {
+        remove_action('newsmatic_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60);
+        add_action('newsmatic_header__menu_section_hook', 'newsmatic_child_header_theme_mode_icon_part', 60);
     }
 }
 
@@ -143,9 +154,41 @@ function newsmatic_child_bottom_footer_hook(): void
 {
     # Remove the newsmatic's theme footer function to overide it
     if (function_exists('newsmatic_bottom_footer_copyright_part')) {
-        remove_action( 'newsmatic_botttom_footer_hook', 'newsmatic_bottom_footer_copyright_part', 20 );
-        add_action( 'newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_copyright_part', 20 );
+        remove_action('newsmatic_botttom_footer_hook', 'newsmatic_bottom_footer_copyright_part', 20);
+        add_action('newsmatic_botttom_footer_hook', 'newsmatic_child_bottom_footer_copyright_part', 20);
     }
+}
+
+/**
+ * Add details on search button in header
+ * @return void
+ */
+function newsmatic_child_header_search_part(): void
+{
+    if(!ND\newsmatic_get_customizer_option( 'header_search_option')) return;
+    ?>
+    <div class="search-wrap">
+        <button class="search-trigger" name="Rechercher du contenu">
+            <i class="fas fa-search"></i>
+        </button>
+        <div class="search-form-wrap hide">
+            <?php echo get_search_form(); ?>
+        </div>
+    </div>
+    <?php
+}
+
+function newsmatic_child_header_theme_mode_icon_part(): void
+{
+    if(!ND\newsmatic_get_customizer_option( 'header_theme_mode_toggle_option')) return;
+    $theme_mode_dark = ( isset( $_COOKIE['themeMode'] ) && $_COOKIE['themeMode'] == 'dark' );
+    ?>
+    <div class="mode_toggle_wrap">
+        <input aria-label="Changer de mode d'affichage" class="mode_toggle" type="checkbox" name="mode_toggle"
+            <?php echo checked(true, $theme_mode_dark); ?>
+        >
+    </div>
+    <?php
 }
 
 /**
