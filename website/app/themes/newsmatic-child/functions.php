@@ -249,14 +249,16 @@ function newsmatic_child_pagination_fnc(): void
     if( is_null( paginate_links() ) ) {
         return;
     }
-    echo '<div class="pagination">' .
-        wp_kses_post(paginate_links([
-            'prev_text' => '<i class="fas fa-chevron-left" aria-label="Chevron gauche"></i>',
-            'next_text' => '<i class="fas fa-chevron-right" aria-label="Chevron droit"></i>',
-            'type' => 'list'
-        ])) .
-        '</div>'
-    ;
+    ?>
+    <nav class="pagination" aria-label="<?php esc_attr_e( 'Pagination', 'explain' ); ?>">
+      <?php echo paginate_links( array(
+          'type' => 'list',
+          'prev_text' => '<span class="screen-reader-text">' . __('Previous page', 'explain') . '</span><i class="fas fa-chevron-left"></i>',
+          'next_text' => '<span class="screen-reader-text">' . __('Next page', 'explain') . '</span><i class="fas fa-chevron-right"></i>',
+          'before_page_number' => '<span class="screen-reader-text">' . __( 'Page', 'explain' ) . '</span> '
+      ) ); ?>
+    </nav>
+    <?php
 }
 
 /**

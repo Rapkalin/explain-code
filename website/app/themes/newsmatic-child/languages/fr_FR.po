@@ -1,95 +1,114 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explain\n"
-"POT-Creation-Date: 2023-06-22 12:52+0200\n"
-"PO-Revision-Date: 2023-06-22 12:52+0200\n"
+"POT-Creation-Date: 2023-07-26 09:58+0200\n"
+"PO-Revision-Date: 2023-07-26 10:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.3.1\n"
-"X-Poedit-Basepath: ../themes\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-Basepath: ../..\n"
 "X-Poedit-KeywordsList: __;_n:1,2;_e\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-0: newsmatic-child/themes/.\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPath-2: newsmatic-child/languages/explain.pot\n"
 
-#: newsmatic/inc/admin/class-theme-info.php:578
-#: newsmatic/inc/admin/class-theme-info.php:597
+#: newsmatic-child/functions.php:256
+msgid "Previous page"
+msgstr "Page précédente"
+
+#: newsmatic-child/functions.php:257
+msgid "Next page"
+msgstr "Page suivante"
+
+#: newsmatic-child/functions.php:258
+msgid "Page"
+msgstr ""
+
+#: newsmatic/inc/admin/class-theme-info.php:625
+#: newsmatic/inc/admin/class-theme-info.php:644
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
-#: newsmatic/inc/admin/class-theme-info.php:582
-#: newsmatic/inc/admin/class-theme-info.php:601
+#: newsmatic/inc/admin/class-theme-info.php:629
+#: newsmatic/inc/admin/class-theme-info.php:648
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:185
+#: newsmatic/inc/customizer/handlers.php:186
 msgid "Published date"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:186
+#: newsmatic/inc/customizer/handlers.php:187
 msgid "Modified date"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:201
+#: newsmatic/inc/customizer/handlers.php:202
 msgid "Default by theme"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:202
+#: newsmatic/inc/customizer/handlers.php:203
 msgid "Wordpress default date"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:739
-#: newsmatic/inc/customizer/handlers.php:756
+#: newsmatic/inc/customizer/handlers.php:740
+#: newsmatic/inc/customizer/handlers.php:758
 msgid "None"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:740
+#: newsmatic/inc/customizer/handlers.php:741
 msgid "Effect one"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:757
+#: newsmatic/inc/customizer/handlers.php:742
+#: newsmatic/inc/customizer/handlers.php:760
+msgid "Effect Two"
+msgstr ""
+
+#: newsmatic/inc/customizer/handlers.php:759
 msgid "Effect One"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1049
+#: newsmatic/inc/customizer/handlers.php:1052
 msgid "Default"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1050
+#: newsmatic/inc/customizer/handlers.php:1053
 msgid "NavXT"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1051
+#: newsmatic/inc/customizer/handlers.php:1054
 msgid "Yoast SEO"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1052
+#: newsmatic/inc/customizer/handlers.php:1055
 msgid "Rank Math"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1066
+#: newsmatic/inc/customizer/handlers.php:1069
 msgid "Before Main Container - Full Width"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1067
+#: newsmatic/inc/customizer/handlers.php:1070
 msgid "Before Inner Container"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1406
+#: newsmatic/inc/customizer/handlers.php:1409
 msgid "Ticker news / Nav menu choices"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1639
+#: newsmatic/inc/customizer/handlers.php:1642
 msgid "Open Ads link on"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1687
+#: newsmatic/inc/customizer/handlers.php:1690
 msgid "Social Icon - Site Logo - Buttons"
 msgstr ""
 
-#: newsmatic/inc/customizer/handlers.php:1688
+#: newsmatic/inc/customizer/handlers.php:1691
 msgid "Buttons - Site Logo - Social Icon"
 msgstr ""
 
