@@ -35,6 +35,9 @@ add_action('init', 'nesmatic_child_init_hook');
 
 add_filter('site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1);
 
+/* Performance optimization */
+add_filter('should_load_separate_core_block_assets', '__return_true');
+
 function newsmatic_child_custom_favicon($meta_tags): array
 {
     // using the next filter we can decide which elements of the array of meta tags want to treat.
