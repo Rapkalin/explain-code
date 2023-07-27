@@ -42,6 +42,9 @@ add_action('wp_enqueue_scripts', 'wpdocs_dequeue_libraries');
 function wpdocs_dequeue_libraries(): void
 {
     wp_deregister_style('dashicons');
+    wp_deregister_style('classic-theme-styles');
+    wp_deregister_script('wp-mediaelement');
+    wp_deregister_style('wp-mediaelement');
 }
 
 function newsmatic_child_custom_favicon($meta_tags): array
