@@ -33,6 +33,40 @@ add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search
 
 add_action('init', 'nesmatic_child_init_hook');
 
+add_filter('site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1);
+
+function newsmatic_child_custom_favicon($meta_tags): array
+{
+    // using the next filter we can decide which elements of the array of meta tags want to treat.
+    $lines_to_change = apply_filters('lines_of_favicon_metas_to_change', [0, 1]);
+
+    foreach ($lines_to_change as $i) {
+        // extracting the URL of the image
+        preg_match_all('/href=\"([^\"]*)\"{1}/', $meta_tags[$i], $matches);
+
+        // get the mime image type and creating "image/type" or whatever associated with its extension
+        $type = get_favicon_image_extension_type_attribute($matches[1][0]);
+
+        // Introducing type="image/type" the HTML code
+        $meta_tags[$i] = str_replace('"icon" href', '"icon" type="' . $type . '" href', $meta_tags[$i]);
+    }
+
+    return $meta_tags;
+}
+
+// For expanding and simplify the code we create a separate function for treating the URL of the images
+function get_favicon_image_extension_type_attribute($t): string
+{
+    $base = strtolower(substr($t, -4));
+    $type = match ($base) {
+        '.ico' => 'image/x-icon',
+        '.jpg', 'jpeg' => 'image/jpeg',
+        default => 'image/' . substr($base, 1, 3),
+    };
+    return apply_filters('get_favicon_image_extension_type_attribute', $type, $t, $base);
+
+}
+
 // Override header title to remove the separator
 add_filter( 'pre_get_document_title', 'newsmatic_child_title', 999, 1 );
 function newsmatic_child_title($title): string
@@ -47,6 +81,7 @@ function nesmatic_child_init_hook(): void
         remove_action('newsmatic_pagination_link_hook', 'newsmatic_pagination_fnc');
         add_action('newsmatic_pagination_link_hook', 'newsmatic_child_pagination_fnc');
     }
+
 }
 
 /**
@@ -270,6 +305,8 @@ function newsmatic_child_pagination_fnc(): void
  */
 function no_self_ping(&$links): void
 {
+
+    remove_action('admin_head', 'wp_site_icon');
     $home = get_option('home');
     foreach ($links as $l => $link) {
         if (0 === strpos($link, $home)) {
