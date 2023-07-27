@@ -37,6 +37,12 @@ add_filter('site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1);
 
 /* Performance optimization */
 add_filter('should_load_separate_core_block_assets', '__return_true');
+add_action('wp_enqueue_scripts', 'wpdocs_dequeue_libraries');
+
+function wpdocs_dequeue_libraries(): void
+{
+    wp_deregister_style('dashicons');
+}
 
 function newsmatic_child_custom_favicon($meta_tags): array
 {
@@ -79,6 +85,7 @@ function newsmatic_child_title($title): string
 
 function nesmatic_child_init_hook(): void
 {
+    wp_deregister_script('heartbeat');
     # Update pagination button
     if (function_exists('newsmatic_pagination_fnc')) {
         remove_action('newsmatic_pagination_link_hook', 'newsmatic_pagination_fnc');
