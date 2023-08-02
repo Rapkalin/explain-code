@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc034bee385667fe9130a0e70ae5b581",
+    "content-hash": "5ea857a336ccea30757aef853d4cafe0",
     "packages": [
         {
             "name": "composer/installers",
@@ -863,6 +863,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/dashboard-widgets-suite/"
+        },
+        {
+            "name": "wpackagist-plugin/google-site-kit",
+            "version": "1.106.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/google-site-kit/",
+                "reference": "tags/1.106.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.106.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/google-site-kit/"
         },
         {
             "name": "wpackagist-plugin/hello-dolly",
