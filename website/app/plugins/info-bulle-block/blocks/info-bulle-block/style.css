@@ -15,7 +15,7 @@
 	border-radius: 5px;
 	box-sizing: content-box;
 	height: auto;
-	padding: 20px 10px 30px 30px;
+	padding: 20px 10px 20px 30px;
 }
 
 div.info-bulle-component-front p {
@@ -120,4 +120,5 @@ div.mode-see-also {
 	color: #F47D26;
 	font-weight: bold;
 	margin-right: 5px;
+	text-wrap: nowrap;
 }
