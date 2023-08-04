@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explain\n"
-"POT-Creation-Date: 2023-07-26 09:58+0200\n"
-"PO-Revision-Date: 2023-07-26 10:05+0200\n"
+"POT-Creation-Date: 2023-08-04 20:01+0200\n"
+"PO-Revision-Date: 2023-08-04 20:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -16,15 +16,19 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPath-2: newsmatic-child/languages/explain.pot\n"
 
-#: newsmatic-child/functions.php:256
+#: newsmatic-child/functions.php:302
+msgid "Profile picture"
+msgstr "Photo de profil"
+
+#: newsmatic-child/functions.php:321
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: newsmatic-child/functions.php:257
+#: newsmatic-child/functions.php:322
 msgid "Next page"
 msgstr "Page suivante"
 
-#: newsmatic-child/functions.php:258
+#: newsmatic-child/functions.php:323
 msgid "Page"
 msgstr ""
 

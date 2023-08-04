@@ -44,6 +44,7 @@ add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
 
 function wpdocs_dequeue_libraries(): void
 {
+    // unregister style if user not connected (bacause adminbar uses dashicons
     if (!is_user_logged_in()) {
         wp_deregister_style('dashicons');
     }
@@ -293,15 +294,15 @@ function newsmatic_child_theme_locale(): void
 
 function newsmatic_child_category_archive_author_html(): void
 {
-    if( ! is_author() ) return;
-    $author_id =  get_query_var( 'author' );
+    if(!is_author()) return;
+    $author_id =  get_query_var('author');
     ?>
     <div class="newsmatic-container newsmatic-author-section">
         <div class="row">
-            <?php echo wp_kses_post( get_avatar($author_id, 125) ); ?>
+            <?php echo get_avatar($author_id, 125, 'mystery', __('Profile picture', 'explain')) ?>
             <div class="author-content">
-                <h2 class="author-name"><?php echo esc_html( get_the_author_meta( 'display_name', $author_id ) ); ?></h2>
-                <p class="author-desc"><?php echo nl2br(wp_kses_post( get_the_author_meta('description', $author_id) )); ?></p>
+                <h2 class="author-name"><?php echo esc_html(get_the_author_meta('display_name', $author_id)); ?></h2>
+                <p class="author-desc"><?php echo nl2br(wp_kses_post(get_the_author_meta('description', $author_id))); ?></p>
             </div>
         </div>
     </div>
@@ -310,17 +311,17 @@ function newsmatic_child_category_archive_author_html(): void
 
 function newsmatic_child_pagination_fnc(): void
 {
-    if( is_null( paginate_links() ) ) {
+    if(is_null(paginate_links())) {
         return;
     }
     ?>
-    <nav class="pagination" aria-label="<?php esc_attr_e( 'Pagination', 'explain' ); ?>">
-      <?php echo paginate_links( array(
+    <nav class="pagination" aria-label="<?php esc_attr_e('Pagination', 'explain'); ?>">
+      <?php echo paginate_links([
           'type' => 'list',
           'prev_text' => '<span class="screen-reader-text">' . __('Previous page', 'explain') . '</span><i class="fas fa-chevron-left"></i>',
           'next_text' => '<span class="screen-reader-text">' . __('Next page', 'explain') . '</span><i class="fas fa-chevron-right"></i>',
           'before_page_number' => '<span class="screen-reader-text">' . __( 'Page', 'explain' ) . '</span> '
-      ) ); ?>
+      ]); ?>
     </nav>
     <?php
 }

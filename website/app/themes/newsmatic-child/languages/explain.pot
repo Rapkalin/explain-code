@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explain\n"
-"POT-Creation-Date: 2023-07-26 09:58+0200\n"
+"POT-Creation-Date: 2023-08-04 20:01+0200\n"
 "PO-Revision-Date: 2023-06-22 12:28+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,15 +15,19 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_n:1,2;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: newsmatic-child/functions.php:256
+#: newsmatic-child/functions.php:302
+msgid "Profile picture"
+msgstr ""
+
+#: newsmatic-child/functions.php:321
 msgid "Previous page"
 msgstr ""
 
-#: newsmatic-child/functions.php:257
+#: newsmatic-child/functions.php:322
 msgid "Next page"
 msgstr ""
 
-#: newsmatic-child/functions.php:258
+#: newsmatic-child/functions.php:323
 msgid "Page"
 msgstr ""
 
