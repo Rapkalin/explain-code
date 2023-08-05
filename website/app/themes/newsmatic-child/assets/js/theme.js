@@ -335,7 +335,7 @@ jQuery(document).ready(function($) {
         var _this = $(this)
         $( "body" ).toggleClass( "newsmatic_dark_mode" )
         if( _this.find( "input:checked" ).length > 0 && $( "body" ).hasClass( "newsmatic_dark_mode" ) ) {
-            $.cookie("themeMode", "dark", { path: '/' });
+            $.cookie("themeMode", "dark", { path: '/' }); // Custom update for child
             $("body").removeClass("newsmatic_main_body");
             $(".custom-logo").attr('src', newsmaticObject.uploadsFolder + '/2023/07/explain-code-me-logo-main-transparent-min.webp');
             $(".custom-logo").attr('srcset', newsmaticObject.uploadsFolder + '/2023/07/explain-code-me-logo-main-transparent-min.webp 1536w, '+
@@ -343,7 +343,7 @@ jQuery(document).ready(function($) {
                 newsmaticObject.uploadsFolder + '/2023/07/explain-code-me-logo-main-transparent-min-1024x211.webp 1024w, '+
                 newsmaticObject.uploadsFolder + '/2023/07/explain-code-me-logo-main-transparent-min-768x158.webp 768w');
         } else {
-            $.cookie("themeMode", "light", { path: '/'});
+            $.cookie("themeMode", "light", { path: '/'}); // Custom update for child
             $("body").addClass("newsmatic_main_body");
             $(".custom-logo").attr('src', newsmaticObject.uploadsFolder + '/2023/05/image-5.png');
             $(".custom-logo").attr('srcset', null);
