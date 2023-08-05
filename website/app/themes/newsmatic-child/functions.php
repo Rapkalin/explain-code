@@ -225,9 +225,9 @@ function newsmatic_child_header_menu_404_hook(): void
 {
     # Remove native menu for 404
     if(is_404() && function_exists('newsmatic_header_menu_part')) {
-        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
         remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_search_part', 50 );
         remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_menu_part', 40 );
+        remove_action( 'newsmatic_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60 );
     }
 }
 
@@ -271,29 +271,31 @@ function newsmatic_child_bottom_footer_hook(): void
 function newsmatic_child_header_search_part(): void
 {
     if(!ND\newsmatic_get_customizer_option( 'header_search_option')) return;
-    ?>
-    <div class="search-wrap">
-        <button class="search-trigger" aria-label="Rechercher du contenu" name="Rechercher du contenu">
-            <i class="fas fa-search"></i>
-        </button>
-        <div class="search-form-wrap hide">
-            <?php echo get_search_form(); ?>
+    if(!is_404()) {?>
+        <div class="search-wrap">
+            <button class="search-trigger" aria-label="Rechercher du contenu" name="Rechercher du contenu">
+                <i class="fas fa-search"></i>
+            </button>
+            <div class="search-form-wrap hide">
+                <?php echo get_search_form(); ?>
+            </div>
         </div>
-    </div>
     <?php
+    }
 }
 
 function newsmatic_child_header_theme_mode_icon_part(): void
 {
     if(!ND\newsmatic_get_customizer_option( 'header_theme_mode_toggle_option')) return;
     $theme_mode_dark = ( isset( $_COOKIE['themeMode'] ) && $_COOKIE['themeMode'] == 'dark' );
-    ?>
-    <div class="mode_toggle_wrap">
-        <input aria-label="Changer de mode d'affichage" class="mode_toggle" type="checkbox" name="mode_toggle"
-            <?php echo checked(true, $theme_mode_dark); ?>
-        >
-    </div>
+    if(!is_404()) {?>
+        <div class="mode_toggle_wrap">
+            <input aria-label="Changer de mode d'affichage" class="mode_toggle" type="checkbox" name="mode_toggle"
+                <?php echo checked(true, $theme_mode_dark); ?>
+            >
+        </div>
     <?php
+    }
 }
 
 function newsmatic_child_header_site_branding_part(): void

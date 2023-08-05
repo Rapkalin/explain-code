@@ -22,7 +22,7 @@ get_header();
 
                             <div id="description-toggle">
                                 <p><?php echo esc_html__( 'Wouuupsy, looks like you got lost!', 'explain' ); ?></p>
-                                <!-- Toggle icon dark/light momde -->
+                                <!-- Toggle icon dark/light mode -->
                                 <?php
                                     do_action( 'newsmatic_child_404_header_icon__menu_section_hook' );
                                 ?>
