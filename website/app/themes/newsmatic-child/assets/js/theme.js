@@ -337,9 +337,15 @@ jQuery(document).ready(function($) {
         if( _this.find( "input:checked" ).length > 0 && $( "body" ).hasClass( "newsmatic_dark_mode" ) ) {
             $.cookie("themeMode", "dark", { path: '/' }); // Custom update for child
             $("body").removeClass("newsmatic_main_body");
+
+            $(".custom-logo-link").remove(); // Custom update for child
+            $(".site-branding").append(newsmaticObject.customLogoDark); // Custom update for child
         } else {
             $.cookie("themeMode", "light", { path: '/'}); // Custom update for child
             $("body").addClass("newsmatic_main_body");
+
+            $(".custom-logo-link").remove(); // Custom update for child
+            $(".site-branding").append(newsmaticObject.customLogoLight); // Custom update for child
         }
     });
 

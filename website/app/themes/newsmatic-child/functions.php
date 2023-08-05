@@ -31,7 +31,7 @@ add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_m
 add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part' );
 add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part' );
 
-add_action( 'init', 'nesmatic_child_init_hook' );
+add_action( 'init', 'newsmatic_child_init_hook' );
 
 add_filter( 'site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1 );
 
@@ -103,8 +103,13 @@ function newsmatic_child_title($title): string
     return rtrim($title, " -");
 }
 
-function nesmatic_child_init_hook(): void
+function newsmatic_child_init_hook(): void
 {
+    // Dark mode as default
+    if (!isset($_COOKIE['themeMode'])) {
+        setcookie('themeMode', 'dark', 0, "/");
+        $_COOKIE['themeMode'] = 'dark';
+    }
     wp_deregister_script('heartbeat');
     # Update pagination button
     if (function_exists('newsmatic_pagination_fnc')) {
@@ -165,8 +170,17 @@ function newsmatic_child_register_style(): void
 
     wp_dequeue_script('newsmatic-theme');
     wp_enqueue_script('newsmatic-child-theme', get_stylesheet_directory_uri() . '/assets/js/theme.js', ['jquery'], NEWSMATIC_VERSION, true );
+
     $scriptVars['_wpnonce'] = wp_create_nonce( 'newsmatic-nonce' );
     $scriptVars['ajaxUrl'] 	= admin_url('admin-ajax.php');
+    $scriptVars['uploadsFolder'] = wp_get_upload_dir()['baseurl'];
+    $scriptVars['customLogoDark'] = get_custom_logo();
+    $scriptVars['customLogoLight'] = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+        esc_url(network_site_url()),
+        wp_get_attachment_image(1432, 'full', false, [
+            'class'    => 'custom-logo',
+        ])
+    );
     $scriptVars['stt']	= ND\newsmatic_get_multiselect_tab_option('stt_responsive_option');
     $scriptVars['stickey_header']= ND\newsmatic_get_customizer_option('theme_header_sticky');
     $scriptVars['livesearch']= ND\newsmatic_get_customizer_option('theme_header_live_search_option');
@@ -234,6 +248,11 @@ function newsmatic_child_header_branding_hook(): void
         remove_action('newsmatic_header__menu_section_hook', 'newsmatic_header_theme_mode_icon_part', 60);
         add_action('newsmatic_header__menu_section_hook', 'newsmatic_child_header_theme_mode_icon_part', 60);
     }
+
+    if (function_exists('newsmatic_header_theme_mode_icon_part')) {
+        remove_action('newsmatic_header__site_branding_section_hook', 'newsmatic_header_site_branding_part', 10);
+        add_action('newsmatic_header__site_branding_section_hook', 'newsmatic_child_header_site_branding_part', 10);
+    }
 }
 
 function newsmatic_child_bottom_footer_hook(): void
@@ -274,6 +293,39 @@ function newsmatic_child_header_theme_mode_icon_part(): void
             <?php echo checked(true, $theme_mode_dark); ?>
         >
     </div>
+    <?php
+}
+
+function newsmatic_child_header_site_branding_part(): void
+{
+    ?>
+    <div class="site-branding">
+        <?php
+        if (isset($_COOKIE['themeMode']) && $_COOKIE['themeMode'] === 'dark') {
+            the_custom_logo();
+        } else {
+            echo sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+                esc_url(network_site_url()),
+                wp_get_attachment_image(1432, 'full', false, [
+                    'class'    => 'custom-logo',
+                ])
+            );
+        }
+        if ( is_front_page() && is_home() ) :
+            ?>
+            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+        <?php
+        else :
+            ?>
+            <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+        <?php
+        endif;
+        $newsmatic_description = get_bloginfo( 'description', 'display' );
+        if ( $newsmatic_description || is_customize_preview() ) :
+            ?>
+            <p class="site-description"><?php echo apply_filters( 'newsmatic_bloginfo_description', esc_html( $newsmatic_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+        <?php endif; ?>
+    </div><!-- .site-branding -->
     <?php
 }
 
