@@ -86,11 +86,11 @@ function newsmatic_child_custom_favicon($meta_tags): array
 // For expanding and simplify the code we create a separate function for treating the URL of the images
 function get_favicon_image_extension_type_attribute($t): string
 {
-    $base = strtolower(substr($t, -4));
+    $base = trim(strtok(pathinfo($t, PATHINFO_EXTENSION), '?'));
     $type = match ($base) {
-        '.ico' => 'image/x-icon',
-        '.jpg', 'jpeg' => 'image/jpeg',
-        default => 'image/' . substr($base, 1, 3),
+        'ico' => 'image/x-icon',
+        'jpg', 'jpeg' => 'image/jpeg',
+        default => 'image/' . $base,
     };
     return apply_filters('get_favicon_image_extension_type_attribute', $type, $t, $base);
 
