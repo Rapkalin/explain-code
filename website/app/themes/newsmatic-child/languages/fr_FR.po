@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: explain\n"
-"POT-Creation-Date: 2023-08-04 20:01+0200\n"
-"PO-Revision-Date: 2023-08-04 20:02+0200\n"
+"POT-Creation-Date: 2023-08-05 22:22+0200\n"
+"PO-Revision-Date: 2023-08-05 22:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -16,19 +16,26 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPath-2: newsmatic-child/languages/explain.pot\n"
 
-#: newsmatic-child/functions.php:302
+#: newsmatic-child/functions.php:342
+msgid "Discover the full project on GitHub"
+msgstr ""
+"Notre but étant de partager nos connaissances, suivez aussi l'évolution du "
+"blog sur <b><a href=\"https://github.com/Rapkalin/explain-code\">GitHub</"
+"a></b>."
+
+#: newsmatic-child/functions.php:366
 msgid "Profile picture"
 msgstr "Photo de profil"
 
-#: newsmatic-child/functions.php:321
+#: newsmatic-child/functions.php:385
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: newsmatic-child/functions.php:322
+#: newsmatic-child/functions.php:386
 msgid "Next page"
 msgstr "Page suivante"
 
-#: newsmatic-child/functions.php:323
+#: newsmatic-child/functions.php:387
 msgid "Page"
 msgstr ""
 
