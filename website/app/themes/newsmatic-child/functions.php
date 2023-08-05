@@ -176,7 +176,7 @@ function newsmatic_child_register_style(): void
     $scriptVars['uploadsFolder'] = wp_get_upload_dir()['baseurl'];
     $scriptVars['customLogoDark'] = get_custom_logo();
     $scriptVars['customLogoLight'] = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
-        esc_url(network_site_url()),
+        esc_url(get_home_url()),
         wp_get_attachment_image(1432, 'full', false, [
             'class'    => 'custom-logo',
         ])
@@ -305,7 +305,7 @@ function newsmatic_child_header_site_branding_part(): void
             the_custom_logo();
         } else {
             echo sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
-                esc_url(network_site_url()),
+                esc_url(get_home_url()),
                 wp_get_attachment_image(1432, 'full', false, [
                     'class'    => 'custom-logo',
                 ])
