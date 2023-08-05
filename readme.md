@@ -73,7 +73,7 @@ php scripts/sync-uploads.php
 ```
 
 ### 2/ FRONTEND
-- N/A
+- For each update of the newsmatic theme, you have to change/refresh website/app/themes/newsmatic-child/assets/js/theme.js to reflect the change
 
 ### 3/ TRANSLATIONS
 The explain-code.pot file is the website's base language 

@@ -335,10 +335,10 @@ jQuery(document).ready(function($) {
         var _this = $(this)
         $( "body" ).toggleClass( "newsmatic_dark_mode" )
         if( _this.find( "input:checked" ).length > 0 && $( "body" ).hasClass( "newsmatic_dark_mode" ) ) {
-            $.cookie("themeMode", "dark", { path: '/' });
+            $.cookie("themeMode", "dark", { path: '/' }); // Custom update for child
             $("body").removeClass("newsmatic_main_body");
         } else {
-            $.cookie("themeMode", "light", { path: '/'});
+            $.cookie("themeMode", "light", { path: '/'}); // Custom update for child
             $("body").addClass("newsmatic_main_body");
         }
     });
