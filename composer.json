@@ -31,7 +31,7 @@
 
         "wpackagist-theme/newsmatic":"^1.2",
 
-        "wpackagist-plugin/w3-total-cache":"^2.3",
+        "wpackagist-plugin/w3-total-cache":"^2.4",
         "wpackagist-plugin/advanced-accordion-block":"^4.6",
         "wpackagist-plugin/code-syntax-block":"^3.1",
         "wpackagist-plugin/dashboard-widgets-suite":"^3.4",
