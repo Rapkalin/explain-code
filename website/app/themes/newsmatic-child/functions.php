@@ -31,7 +31,7 @@ add_action( 'newsmatic_child_404_header__menu_section_hook', 'newsmatic_header_m
 add_action( 'newsmatic_child_404_header_icon__menu_section_hook', 'newsmatic_header_theme_mode_icon_part' );
 add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search_part' );
 
-add_action( 'init', 'nesmatic_child_init_hook' );
+add_action( 'init', 'newsmatic_child_init_hook' );
 
 add_filter( 'site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1 );
 
@@ -103,7 +103,7 @@ function newsmatic_child_title($title): string
     return rtrim($title, " -");
 }
 
-function nesmatic_child_init_hook(): void
+function newsmatic_child_init_hook(): void
 {
     // Dark mode as default
     if (!isset($_COOKIE['themeMode'])) {
@@ -174,6 +174,13 @@ function newsmatic_child_register_style(): void
     $scriptVars['_wpnonce'] = wp_create_nonce( 'newsmatic-nonce' );
     $scriptVars['ajaxUrl'] 	= admin_url('admin-ajax.php');
     $scriptVars['uploadsFolder'] = wp_get_upload_dir()['baseurl'];
+    $scriptVars['customLogoDark'] = get_custom_logo();
+    $scriptVars['customLogoLight'] = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+        esc_url(network_site_url()),
+        wp_get_attachment_image(1432, 'full', false, [
+            'class'    => 'custom-logo',
+        ])
+    );
     $scriptVars['stt']	= ND\newsmatic_get_multiselect_tab_option('stt_responsive_option');
     $scriptVars['stickey_header']= ND\newsmatic_get_customizer_option('theme_header_sticky');
     $scriptVars['livesearch']= ND\newsmatic_get_customizer_option('theme_header_live_search_option');
@@ -299,8 +306,7 @@ function newsmatic_child_header_site_branding_part(): void
         } else {
             echo sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
                 esc_url(network_site_url()),
-                /* @todo: find the correct ID */
-                wp_get_attachment_image(189, 'full', false, [
+                wp_get_attachment_image(1432, 'full', false, [
                     'class'    => 'custom-logo',
                 ])
             );

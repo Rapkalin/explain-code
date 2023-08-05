@@ -60,8 +60,8 @@ if (file_exists('exports/' . $filename)) {
         $stmt = $pdo->query('SELECT * FROM wp_options WHERE option_name="active_plugins"');
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $active_plugins = unserialize($result["option_value"]);
-        $key_to_delete = array_search("jetpack/jetpack.php", $active_plugins);
-        unset($active_plugins[$key_to_delete]);
+        unset($active_plugins[array_search("jetpack/jetpack.php", $active_plugins)]);
+        unset($active_plugins[array_search("w3-total-cache/w3-total-cache.php", $active_plugins)]);
         $active_plugins = array_values($active_plugins);
         $serialized_array = serialize($active_plugins);
 
