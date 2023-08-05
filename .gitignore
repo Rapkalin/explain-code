@@ -29,6 +29,7 @@ website/app/themes/newsmatic
 exports/*
 !exports/.gitkeep
 
+#Plugins to ignore
 !website/app/plugins/
 website/app/plugins/advanced-accordion-block
 website/app/plugins/akismet
@@ -42,6 +43,7 @@ website/app/plugins/performance-lab
 website/app/plugins/w3-total-cache
 website/app/plugins/wordpress-seo
 website/app/plugins/wp-ulike
+website/app/plugins/google-site-kit
 
 # Global gitignore setup
 /composer.lock
