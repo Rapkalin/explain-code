@@ -120,3 +120,8 @@ span.tags-child-links:before {
     font-weight: 900;
 }
 
+/* Twitter embedded */
+.twitter-tweet {
+    margin-right: auto;
+    margin-left: auto;
+}

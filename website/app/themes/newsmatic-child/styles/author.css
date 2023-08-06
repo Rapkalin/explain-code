@@ -14,3 +14,12 @@
 .newsmatic-breadcrumb-wrap {
     display: none;
 }
+
+.author-social-media-child {
+    margin: 0 5px;
+}
+
+.author-social-media-child:hover {
+    color: #4a707c;
+}
+
