@@ -413,12 +413,48 @@ function newsmatic_child_category_archive_author_html(): void
 {
     if(!is_author()) return;
     $author_id =  get_query_var('author');
+
+    $facebook = get_the_author_meta( 'facebook', $author_id );
+    $twitter = get_the_author_meta( 'twitter', $author_id );
+    $instagram = get_the_author_meta( 'instagram', $author_id );
+    $pinterest = get_the_author_meta( 'pinterest', $author_id );
+    $youtube = get_the_author_meta( 'youtube', $author_id );
+    $linkedin = get_the_author_meta( 'linkedin', $author_id );
     ?>
     <div class="newsmatic-container newsmatic-author-section">
         <div class="row">
             <?php echo get_avatar($author_id, 125, 'mystery', __('Profile picture', 'explain')) ?>
             <div class="author-content">
                 <h2 class="author-name"><?php echo esc_html(get_the_author_meta('display_name', $author_id)); ?></h2>
+
+                <?php
+                    // Display social media for the current author
+
+                    if(!empty($facebook)) {
+                    echo '<a href="'. $facebook .'" rel="nofollow" target="_blank" alt="Facebook"><i class="author-social-media-child fab fa-facebook"></i></a>';
+                    }
+
+                    if(!empty($instagram)) {
+                    echo '<a href="'. $instagram .'" rel="nofollow" target="_blank" alt="Instagram"><i class="author-social-media-child fab fa-instagram"></i></a>';
+                    }
+
+                    if(!empty($pinterest)) {
+                    echo '<a href="'. $pinterest .'" rel="nofollow" target="_blank" alt="Pinterest"><i class="author-social-media-child fab fa-pinterest"></i></a>';
+                    }
+
+                    if(!empty($twitter)) {
+                    echo '<a href="https://twitter.com/' . $twitter .'" rel="nofollow" target="_blank" alt="Twitter"><i class="author-social-media-child fab fa-twitter"></i></a>';
+                    }
+
+                    if(!empty($youtube)) {
+                    echo '<a href="'. $youtube .'" rel="nofollow" target="_blank" alt="YouTube"><i class="author-social-media-child fab fa-youtube"></i></a>';
+                    }
+
+                    if(!empty($linkedin)) {
+                    echo '<a href="'. $linkedin .'" rel="nofollow" target="_blank" alt="Linkedin"><i class="author-social-media-child fab fa-linkedin"></i></a>';
+                    }
+                ?>
+
                 <p class="author-desc"><?php echo nl2br(wp_kses_post(get_the_author_meta('description', $author_id))); ?></p>
             </div>
         </div>
