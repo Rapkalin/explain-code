@@ -1,10 +1,5 @@
 /* ARTICLES */
 
-/* Hide cover image */
-.entry-header .post-thumbnail {
-    display : none;
-}
-
 /* Hide previous and next article block */
 body.single .navigation.post-navigation {
     display : none;
@@ -102,18 +97,26 @@ body .aagb__accordion_title {
 }
 
 /* Tags */
-span.tags-child-links {
-    color: var(--meta-text-color);
-    text-decoration: initial;
-    font-family: var(--single-meta-family);
-    text-transform: capitalize;
-}
-
 span.tags-child-links a {
-    text-decoration: underline !important;
+    color: whitesmoke !important;
+    text-decoration: initial;
+    text-transform: capitalize;
+    background-color: var(--theme-color-red);
+    border-radius: 3px;
+    line-height: var(--single-meta-lineheight);
+    font-weight: var(--single-meta-weight);
+    font-family: var(--single-meta-family);
+    margin: 0 5px 5px 0;
+    padding: 2px 4px 2px 4px;
 }
 
-span.tags-child-links a:hover {
-    text-decoration-line: none !important;
+span.tags-child-links:before {
+    margin: 0 5px;
+    content: "\f02b";
+    font-family: 'Font Awesome 5 Free';
+    padding: 0 2px 0 7px;
+    margin-left: 0;
+    font-size: var(--single-meta-size);
+    font-weight: 900;
 }
 
