@@ -51,7 +51,6 @@ body .aagb__accordion_title {
 }
 
 /* Change background title comment and color */
-
 .comments-area h2.comments-title {
     color: black;
     background-color: #FFFFFF;
@@ -101,3 +100,20 @@ body .aagb__accordion_title {
     display: flex;
     flex-direction: column;
 }
+
+/* Tags */
+span.tags-child-links {
+    color: var(--meta-text-color);
+    text-decoration: initial;
+    font-family: var(--single-meta-family);
+    text-transform: capitalize;
+}
+
+span.tags-child-links a {
+    text-decoration: underline !important;
+}
+
+span.tags-child-links a:hover {
+    text-decoration-line: none !important;
+}
+

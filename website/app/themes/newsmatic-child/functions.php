@@ -2,6 +2,11 @@
 
 use Newsmatic\CustomizerDefault as ND;
 
+/**
+ * Custom template tags for this child theme.
+ */
+require get_stylesheet_directory() . '/inc/template-tags-child.php';
+
 add_action ( 'newsmatic_before_main_content', 'newsmatic_child_author_hook');
 
 /* Load styles and scripts */
@@ -42,6 +47,10 @@ add_filter( 'jetpack_sharing_counts', '__return_false', 99 );
 add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
 
+
+/**
+ * @return void
+ */
 function wpdocs_dequeue_libraries(): void
 {
     // unregister style if user not connected (bacause adminbar uses dashicons
@@ -53,6 +62,11 @@ function wpdocs_dequeue_libraries(): void
     wp_deregister_style('wp-mediaelement');
 }
 
+/**
+ * @param $scripts
+ *
+ * @return void
+ */
 function remove_jquery_migrate($scripts): void
 {
     if (!is_admin() && isset($scripts->registered['jquery'])) {
@@ -64,6 +78,11 @@ function remove_jquery_migrate($scripts): void
     }
 }
 
+/**
+ * @param $meta_tags
+ *
+ * @return array
+ */
 function newsmatic_child_custom_favicon($meta_tags): array
 {
     // using the next filter we can decide which elements of the array of meta tags want to treat.
@@ -83,6 +102,11 @@ function newsmatic_child_custom_favicon($meta_tags): array
     return $meta_tags;
 }
 
+/**
+ * @param $t
+ *
+ * @return string
+ */
 // For expanding and simplify the code we create a separate function for treating the URL of the images
 function get_favicon_image_extension_type_attribute($t): string
 {
@@ -98,11 +122,20 @@ function get_favicon_image_extension_type_attribute($t): string
 
 // Override header title to remove the separator
 add_filter( 'pre_get_document_title', 'newsmatic_child_title', 999, 1 );
+
+/**
+ * @param $title
+ *
+ * @return string
+ */
 function newsmatic_child_title($title): string
 {
     return rtrim($title, " -");
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_init_hook(): void
 {
     // Dark mode as default
@@ -221,6 +254,9 @@ function newsmatic_child_author_hook(): void
     }
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_header_menu_404_hook(): void
 {
     # Remove native menu for 404
@@ -231,6 +267,9 @@ function newsmatic_child_header_menu_404_hook(): void
     }
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_header_branding_hook(): void
 {
     # Remove social media part to center logo properly
@@ -255,6 +294,9 @@ function newsmatic_child_header_branding_hook(): void
     }
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_bottom_footer_hook(): void
 {
     # Remove the newsmatic's theme footer function to overide it
@@ -284,6 +326,9 @@ function newsmatic_child_header_search_part(): void
     }
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_header_theme_mode_icon_part(): void
 {
     if(!ND\newsmatic_get_customizer_option( 'header_theme_mode_toggle_option')) return;
@@ -298,6 +343,9 @@ function newsmatic_child_header_theme_mode_icon_part(): void
     }
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_header_site_branding_part(): void
 {
     ?>
@@ -358,6 +406,9 @@ function newsmatic_child_theme_locale(): void
     load_child_theme_textdomain( 'explain', get_stylesheet_directory() . '/languages' );
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_category_archive_author_html(): void
 {
     if(!is_author()) return;
@@ -375,6 +426,9 @@ function newsmatic_child_category_archive_author_html(): void
     <?php
 }
 
+/**
+ * @return void
+ */
 function newsmatic_child_pagination_fnc(): void
 {
     if(is_null(paginate_links())) {
