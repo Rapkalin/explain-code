@@ -25,7 +25,6 @@ wordpress-core/
 website/app/*
 !website/app/languages
 !website/app/themes/
-!website/app/w3tc-config
 !website/app/advanced-cache.php
 !website/app/object-cache.php
 website/app/themes/newsmatic
