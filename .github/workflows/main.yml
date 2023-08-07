@@ -84,4 +84,4 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           port: 22
-          script: ln -nsrf ~/code/shared/.env ~/code/website/.env && ln -nsrf ~/code/shared/uploads ~/code/website/app/uploads
+          script: ln -nsrf ~/code/shared/.env ~/code/website/.env && ln -nsrf ~/code/shared/uploads ~/code/website/app/uploads && ln -nsrf ~/code/shared/cache ~/code/website/app/cache && rm ~/code/website/.htaccess && ln -nsrf ~/code/shared/.htaccess ~/code/website/.htaccess

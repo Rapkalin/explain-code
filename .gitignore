@@ -23,7 +23,6 @@ wordpress-core/
 # Content: Uploads and themes
 # Add ! for files and dir to commit
 website/app/*
-!website/app/cache
 !website/app/languages
 !website/app/themes/
 !website/app/w3tc-config
