@@ -107,3 +107,21 @@ This is where you will find all the plugins, themes etc:
 - Languages: directory that handle the translations of your website. It is created by Wordpress when you configure the default language of your Wordpress website.
 - Uploads: contains all the website's media files
 - Plugins and themes: where are all the plugins & themes and custom plugins & themes/child-themes
+
+### 5/ HOW TO DEPLOY
+To use the auto-deploy using Github Workflows please follow the below instructions:
+- Commit and push your branch (feature/xxx) to main
+- Wait for approval and merge
+- Once the PR approved and merged, pull the changes from main
+```
+  git checkout main
+  git pull
+```
+- Create the new tag after checking the last published here: [Github Actions](https://github.com/Rapkalin/explain-code/actions)
+```
+  git tag x.x.x
+```
+- Push the new tag, this will deploy the main branch automatically to prod
+```
+  git push --tags
+```
