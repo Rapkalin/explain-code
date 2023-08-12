@@ -11,7 +11,7 @@ if( ! function_exists( 'newsmatic_tags_list' ) ) :
             $tags_list = get_the_tag_list( '', ' ' );
             if ( $tags_list ) {
                 /* translators: 1: list of tags. */
-                printf( '<span class="tags-child-links">' . '%1$s' . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                printf( '<div class="tags-child-links article-before-content-text">' . '%1$s' . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
         }
     }

@@ -97,7 +97,7 @@ body .aagb__accordion_title {
 }
 
 /* Tags */
-span.tags-child-links a {
+div.tags-child-links a {
     color: whitesmoke !important;
     text-decoration: initial;
     text-transform: capitalize;
@@ -110,14 +110,32 @@ span.tags-child-links a {
     padding: 2px 4px 2px 4px;
 }
 
-span.tags-child-links:before {
+div.tags-child-links:before {
     margin: 0 5px;
     content: "\f02b";
     font-family: 'Font Awesome 5 Free';
-    padding: 0 2px 0 7px;
+    padding-right: 2px;
     margin-left: 0;
     font-size: var(--single-meta-size);
     font-weight: 900;
+}
+
+div.article-published-date:before {
+    margin: 0 5px;
+    content: "\f073";
+    font-family: 'Font Awesome 5 Free';
+    padding-right: 2px;
+    margin-left: 0;
+    font-size: var(--single-meta-size);
+    font-weight: 900;
+}
+
+.article-before-content-text {
+    color: var(--meta-text-color);
+    text-decoration: initial;
+    font-family: var(--single-meta-family);
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 /* Twitter embedded */
