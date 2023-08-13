@@ -39,9 +39,8 @@ $single_post_meta_order = ND\newsmatic_get_customizer_option( 'single_post_meta_
 															}
 														endforeach;
 
-
-                                                    newsmatic_child_tags_list(); // .entry-tags-child
-
+                                                        newsmatic_child_tags_list();
+                                                        echo '<div class="article-published-date article-before-content-text">' . __('Article published on: ', 'explain') . get_the_date() . '</div>';
                                                     ?>
 												</div><!-- .entry-meta -->
 
@@ -51,11 +50,11 @@ $single_post_meta_order = ND\newsmatic_get_customizer_option( 'single_post_meta_
 						}
 					}
 				endforeach;
-			?>
+            ?>
 		</header><!-- .entry-header -->
 
 		<div <?php newsmatic_schema_article_body_attributes(); ?> class="entry-content">
-			<?php
+            <?php
 				the_content(
 					sprintf(
 						wp_kses(
