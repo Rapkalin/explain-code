@@ -39,7 +39,7 @@ add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search
 add_action( 'init', 'newsmatic_child_init_hook' );
 
 add_filter( 'site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1 );
-add_filter('the_content', 'filter_content_without_plugins', 20);
+// add_filter('the_content', 'filter_content_without_plugins', 20);
 
 /* Performance optimization */
 add_filter( 'should_load_separate_core_block_assets', '__return_true' );
@@ -47,8 +47,6 @@ add_action( 'wp_enqueue_scripts', 'wpdocs_dequeue_libraries' );
 add_filter( 'jetpack_sharing_counts', '__return_false', 99 );
 add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
-
-
 
 
 /**
