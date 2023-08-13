@@ -39,6 +39,7 @@ add_action( 'newsmatic_child_404_header__section_hook', 'newsmatic_header_search
 add_action( 'init', 'newsmatic_child_init_hook' );
 
 add_filter( 'site_icon_meta_tags', 'newsmatic_child_custom_favicon', 10, 1 );
+// add_filter('the_content', 'filter_content_without_plugins', 20);
 
 /* Performance optimization */
 add_filter( 'should_load_separate_core_block_assets', '__return_true' );
@@ -388,7 +389,7 @@ function newsmatic_child_bottom_footer_copyright_part(): void
 {
     ?>
     <div class="site-info">
-        <?php echo  '© ' . date('Y') . ' - ' . 'Powered By Rapkalin and Noweh. <br />' .
+        <?php echo  '© ' . date('Y') . ' - ' . 'Powered By <a href="https://github.com/Rapkalin/">Rapkalin</a> and <a href="https://github.com/noweh/">Noweh</a>. <br />' .
             __('Discover the full project on GitHub', 'explain')
         ?>
     </div>
@@ -501,3 +502,48 @@ function no_self_ping(&$links): void
     }
 }
 
+function filter_content_without_plugins($content) {
+    // Supprime les contenus des plugins
+    $classes_to_remove = array('wpulike', 'sharedaddy');
+    $dom = new DOMDocument();
+    libxml_use_internal_errors(true);
+    $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+    libxml_clear_errors();
+
+    $xpath = new DOMXPath($dom);
+
+    foreach ($classes_to_remove as $class) {
+        $elements = $xpath->query("//*[contains(@class, '$class')]");
+
+        foreach ($elements as $element) {
+            $element->parentNode->removeChild($element);
+        }
+    }
+    return $dom->saveHTML();
+}
+
+function filter_plugins_content($content = null) {
+    if ($content) {
+        // Supprime les contenus des plugins
+        $classes_to_remove = array('wpulike', 'sharedaddy');
+        $removed_elements = [];
+
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+        libxml_clear_errors();
+
+        $xpath = new DOMXPath($dom);
+
+        foreach ($classes_to_remove as $class) {
+            $elements = $xpath->query("//*[contains(@class, '$class')]");
+
+            foreach ($elements as $element) {
+                $removed_elements[] = $dom->saveHTML($element);
+            }
+        }
+
+        // Afficher les éléments retirés
+        return $removed_elements;
+    }
+}
