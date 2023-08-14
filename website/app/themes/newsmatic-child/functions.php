@@ -210,7 +210,7 @@ function newsmatic_child_register_style(): void
     $scriptVars['customLogoDark'] = get_custom_logo();
     $scriptVars['customLogoLight'] = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
         esc_url(get_home_url()),
-        wp_get_attachment_image(1432, 'full', false, [
+        wp_get_attachment_image(1720, 'full', false, [
             'class'    => 'custom-logo',
         ])
     );
