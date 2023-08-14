@@ -388,7 +388,7 @@ function newsmatic_child_bottom_footer_copyright_part(): void
 {
     ?>
     <div class="site-info">
-        <?php echo  '© ' . date('Y') . ' - ' . 'Powered By Rapkalin and Noweh. <br />' .
+        <?php echo  '© ' . date('Y') . ' - ' . 'Powered By <a href="https://github.com/Rapkalin/">Rapkalin</a> and <a href="https://github.com/noweh/">Noweh</a>. <br />' .
             __('Discover the full project on GitHub', 'explain')
         ?>
     </div>
