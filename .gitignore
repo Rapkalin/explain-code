@@ -46,6 +46,7 @@ website/app/plugins/w3-total-cache
 website/app/plugins/wordpress-seo
 website/app/plugins/wp-ulike
 website/app/plugins/google-site-kit
+website/app/plugins/svg-support
 
 
 # Global gitignore setup

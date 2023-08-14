@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6d84fa6ad8bde8bcdc51d4d8f0fbd39",
+    "content-hash": "0a8b9cbfabe2a26d01543f0efdde67e3",
     "packages": [
         {
             "name": "composer/installers",
@@ -955,6 +955,24 @@
             "homepage": "https://wordpress.org/plugins/performance-lab/"
         },
         {
+            "name": "wpackagist-plugin/svg-support",
+            "version": "2.5.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/svg-support/",
+                "reference": "tags/2.5.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/svg-support.2.5.5.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/svg-support/"
+        },
+        {
             "name": "wpackagist-plugin/w3-total-cache",
             "version": "2.4.1",
             "source": {
@@ -1010,15 +1028,15 @@
         },
         {
             "name": "wpackagist-theme/newsmatic",
-            "version": "1.2.10",
+            "version": "1.2.11",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/newsmatic/",
-                "reference": "1.2.10"
+                "reference": "1.2.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/newsmatic.1.2.10.zip"
+                "url": "https://downloads.wordpress.org/theme/newsmatic.1.2.11.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
