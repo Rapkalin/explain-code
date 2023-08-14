@@ -149,10 +149,6 @@ div.article-published-date:before {
     box-shadow: none;
 }
 
-.plugin-content > svg.wpulike-svg-heart-icon {
-    display: none;
-}
-
 .wpulike-animated-heart button.wp_ulike_btn {
     width: 32px;
     height: 32px;

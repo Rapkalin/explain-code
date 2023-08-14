@@ -546,8 +546,10 @@ function get_plugins_content($content = null) {
         foreach ($plugin_classes_to_get as $class) {
             $elements = $xpath->query("//*[contains(@class, '$class')]");
             foreach ($elements as $element) {
-                $removed_elements[] = $dom->saveHTML($element);
-                $element->parentNode->removeChild($element);
+                if ($element->tagName !== 'svg') {
+                    $removed_elements[] = $dom->saveHTML($element);
+                    $element->parentNode->removeChild($element);
+                }
             }
         }
 
