@@ -44,6 +44,8 @@
         "wpackagist-plugin/performance-lab": "^2.5",
         "wpackagist-plugin/wp-ulike": "^4.6",
         "wpackagist-plugin/google-site-kit":"^1.106",
+        "wpackagist-plugin/svg-support":"^2.5",
+
         "ext-dom": "*",
         "ext-libxml": "*"
     },
