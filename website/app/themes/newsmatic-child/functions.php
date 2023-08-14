@@ -356,7 +356,7 @@ function newsmatic_child_header_site_branding_part(): void
         } else {
             echo sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
                 esc_url(get_home_url()),
-                wp_get_attachment_image(1432, 'full', false, [
+                wp_get_attachment_image(1720, 'full', false, [
                     'class'    => 'custom-logo',
                 ])
             );
