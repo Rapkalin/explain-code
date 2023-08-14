@@ -126,44 +126,57 @@ span.tags-child-links:before {
     margin-left: auto;
 }
 
+/* Repositionned + clean like and share plugin icons */
 .wpulike-animated-heart {
     box-shadow: none;
-    border-bottom: 2px solid lightgrey;
 }
 
-.newsmatic_dark_mode .wpulike-animated-heart {
-    border-bottom: 2px solid #546980;
+.plugin-content > svg.wpulike-svg-heart-icon {
+    display: none;
 }
+
+.wpulike-animated-heart button.wp_ulike_btn {
+    width: 32px;
+    height: 32px;
+    box-shadow: none;
+}
+
+.wpulike {
+    padding: 0;
+}
+
 
 @media (min-width: 595px) {
-    .wpulike {
+    .plugin-content {
+        display: flex;
+        flex-direction: column;
         position: fixed;
         top: 40%;
         left: 0.5em;
         z-index: 1;
     }
 
+    /* WPULIKE PLUGIN */
+
+    .wpulike-animated-heart {
+        border-bottom: 2px solid lightgrey;
+        width: fit-content;
+        margin-bottom: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
+    .newsmatic_dark_mode .wpulike-animated-heart {
+        border-bottom: 2px solid #546980;
+        width: fit-content;
+        margin-bottom: 0.5em;
+        padding-bottom: 0.5em;
+    }
+
     .wpulike-animated-heart .count-box {
         margin: 0 5px;
     }
 
-    .wpulike-animated-heart button.wp_ulike_btn {
-        width: 32px;
-        height: 32px;
-        box-shadow: none;
-    }
-
-    .wpulike-animated-heart .wpulike-svg-heart {
-        width: 18px;
-    }
-
-    .sharedaddy {
-        position: fixed;
-        top: 47%;
-        left: 0.5em;
-        z-index: 1;
-    }
-
+    /* SHARE JETPACK PLUGIN */
     .sd-social-icon .sd-content ul {
         display: flex;
         flex-direction: column;
@@ -175,48 +188,39 @@ span.tags-child-links:before {
 }
 
 @media (max-width: 595px) {
-    .wpulike {
-        position: absolute;
-        z-index: 1;
-        border-right: 2px solid grey;
-        padding: 0 5px 0 0;
+    .plugin-content {
+        display: flex;
+        justify-content: center;
     }
 
-    .sharedaddy {
-        z-index: 1;
-        left: 7em;
-        position: absolute;
-    }
-
-    .sd-content ul li {
-        margin-bottom: 0;
-    }
-
-    .wpulike-animated-heart .count-box {
-        margin-left: 6px;
-    }
-
-    .jp-sharing-input-touch .sd-content ul li {
-        padding-left: 3px !important;
-    }
-
-    .wpulike-animated-heart button.wp_ulike_btn {
-        width: 32px;
-        height: 32px;
-        box-shadow: none;
-    }
-
-    .wpulike-animated-heart .wpulike-svg-heart {
-        width: 18px;
-    }
-
+    /* WPULIKE PLUGIN */
     .wpulike-animated-heart {
-        box-shadow: none;
-        border-bottom: none;
+        border-right: 2px solid lightgrey;
+        height: fit-content;
+        margin-right: 0.3em;
+        margin-bottom: 1em;
+        padding-right: 0.3em;
     }
 
     .newsmatic_dark_mode .wpulike-animated-heart {
-        border-bottom: none;
+        border-right: 2px solid #546980;
+    }
+
+    .wpulike-animated-heart .count-box {
+        margin: 0 3px;
+    }
+
+    .sd-content ul {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .sd-content ul li {
+        padding: 0 7px 0 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        display: flex;
     }
 }
 
