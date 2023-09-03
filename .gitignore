@@ -57,6 +57,7 @@ website/.env
 .vscode/
 .phpunit.result.cache
 tags
+.htpasswd
 
 # Database exports
 exports/*
