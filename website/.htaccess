@@ -1,3 +1,11 @@
+#AuthType Basic
+#AuthName "Zone protégée"
+#AuthUserFile /kunden/homepages/27/d471972429/htdocs/preprod-code/shared/.htpasswd
+#Require valid-user
+
+# Autoriser la réécriture
+#RewriteEngine On
+
 #<files *.html>
 #    Header set X-Robots-Tag "index,follow"
 #</files>
@@ -8,11 +16,6 @@
     RewriteCond %{HTTP_HOST} ^[^\.]+\.code-to\.me [NC]
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
-
-#AuthType Basic
-#AuthName "Zone protégée"
-#AuthUserFile ~/preprod-code/shared/.htpasswd
-#Require valid-user
 
 # BEGIN WordPress
 # Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
