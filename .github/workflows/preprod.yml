@@ -92,4 +92,4 @@ jobs:
             rm ~/preprod-code/website/.htaccess
             ln -nsrf ~/preprod-code/shared/.htaccess ~/preprod-code/website/.htaccess
             ln -nsrf ~/preprod-code/shared/.htaccess ~/preprod-code/website/.htaccess
-            ln -nsrf ~/preprod-code/shared/.htpasswd ~/fpreprod-code/website/.htpasswd
+            ln -nsrf ~/preprod-code/shared/.htpasswd ~/preprod-code/website/.htpasswd
