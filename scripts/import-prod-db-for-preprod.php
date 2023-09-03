@@ -52,6 +52,7 @@ if (file_exists($filename)) {
         $stmt = $pdo->query('SELECT * FROM wp_options WHERE option_name="active_plugins"');
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $active_plugins = unserialize($result["option_value"]);
+        unset($active_plugins[array_search("jetpack/jetpack.php", $active_plugins)]);
         $active_plugins = array_values($active_plugins);
         $serialized_array = serialize($active_plugins);
 
