@@ -1,6 +1,6 @@
-<files *.html>
-    Header set X-Robots-Tag "index,follow"
-</files>
+#<files *.html>
+#    Header set X-Robots-Tag "index,follow"
+#</files>
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
