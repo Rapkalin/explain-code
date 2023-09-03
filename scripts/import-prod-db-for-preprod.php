@@ -93,7 +93,7 @@ if (file_exists($filename)) {
 }
 
 // Delete the file on prod server
-exec('"rm ' . $filename . '"');
+exec('rm ' . $filename);
 
 echo "...SQL file removed on remote server.\r\n";
 
