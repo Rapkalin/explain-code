@@ -1,5 +1,8 @@
 name: Run scripts BDD and media uploads
 
+on:
+  workflow_dispatch:
+
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
@@ -14,4 +17,4 @@ jobs:
           script: |
             cd ~/preprod-code/shared/scripts
             ~/bin/php import-prod-db-for-preprod.php 
-            ~/bin/php sync-uploads.php 
+            ~/bin/php sync-uploads.php
