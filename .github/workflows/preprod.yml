@@ -91,3 +91,5 @@ jobs:
             ln -nsrf ~/preprod-code/shared/w3tc-config ~/preprod-code/website/app/w3tc-config
             rm ~/preprod-code/website/.htaccess
             ln -nsrf ~/preprod-code/shared/.htaccess ~/preprod-code/website/.htaccess
+            ln -nsrf ~/preprod-code/shared/.htaccess ~/preprod-code/website/.htaccess
+            ln -nsrf ~/preprod-code/shared/.htpasswd ~/fpreprod-code/website/.htpasswd

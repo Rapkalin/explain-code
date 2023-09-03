@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../website/vendor/autoload.php';
+require __DIR__ . '/../../website/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
@@ -12,25 +12,17 @@ if (PHP_SAPI !== 'cli') {
 $start = microtime(true);
 
 // Load .env data
-$dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../website', '.env');
+$dotenv = Dotenv::createUnsafeImmutable(__DIR__.'/../../website', '.env');
 $dotenv->safeLoad();
 
 $filename = 'export-' . date('Ymd_his') . '.sql';
 
 // Import db in prod server
-exec(
-    'ssh ' . getenv('PROD_USER') . '@' . getenv('PROD_HOST') .
-    ' "mysqldump --host=' . getenv('DATABASE_PROD_HOST') . ' --user=' . getenv('DATABASE_PROD_USER') .
-    ' --password=' . getenv('DATABASE_PROD_PASSWORD') . ' --single-transaction --routines --no-tablespaces ' .
-    getenv('DATABASE_PROD_NAME') . '>' . $filename . '"'
-);
+exec("mysqldump --host=" . getenv('DATABASE_PROD_HOST') . " --user=" . getenv('DATABASE_PROD_USER') . " --password=" . getenv('DATABASE_PROD_PASSWORD') . " --single-transaction --routines --no-tablespaces " . getenv('DATABASE_PROD_NAME') . " > $filename");
 
 echo "...SQL file available on remote server. \r\n";
 
-// Copy this file on current machine
-exec('scp ' . getenv('PROD_USER') . '@' . getenv('PROD_HOST') . ':' . $filename . ' exports');
-
-if (file_exists('exports/' . $filename)) {
+if (file_exists($filename)) {
     echo "...SQL file copied locally.\r\n";
 
     $pdo = new PDO(
@@ -50,7 +42,7 @@ if (file_exists('exports/' . $filename)) {
     echo "...database created.\r\n";
 
     // Load sql file in local database
-    $sql = file_get_contents('exports/' . $filename);
+    $sql = file_get_contents($filename);
     $pdo->exec($sql);
 
     // Update some values in tables to work on localhost
@@ -65,7 +57,6 @@ if (file_exists('exports/' . $filename)) {
 
         $stmt = $pdo->prepare('UPDATE wp_options SET option_value = replace(option_value, ?, ?) WHERE option_name = "active_plugins";');
         $stmt->execute([$result["option_value"], $serialized_array]);
-
 
         $stmt = $pdo->prepare('UPDATE wp_posts SET guid = replace(guid, ?, ?);');
         $stmt->execute([getenv('PROD_SITEURL'), getenv('WP_SITEURL')]);
@@ -102,7 +93,7 @@ if (file_exists('exports/' . $filename)) {
 }
 
 // Delete the file on prod server
-exec('ssh ' . getenv('PROD_USER') . '@' . getenv('PROD_HOST') . ' "rm ' . $filename . '"');
+exec('"rm ' . $filename . '"');
 
 echo "...SQL file removed on remote server.\r\n";
 
