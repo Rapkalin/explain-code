@@ -9,10 +9,10 @@
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
-AuthType Basic
-AuthName "Zone protégée"
-AuthUserFile ~/preprod-code/shared/.htpasswd
-Require valid-user
+#AuthType Basic
+#AuthName "Zone protégée"
+#AuthUserFile ~/preprod-code/shared/.htpasswd
+#Require valid-user
 
 # BEGIN WordPress
 # Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
