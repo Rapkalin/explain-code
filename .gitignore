@@ -47,6 +47,7 @@ website/app/plugins/wordpress-seo
 website/app/plugins/wp-ulike
 website/app/plugins/google-site-kit
 website/app/plugins/svg-support
+website/app/plugins/translatepress-multilingual
 
 
 # Global gitignore setup
