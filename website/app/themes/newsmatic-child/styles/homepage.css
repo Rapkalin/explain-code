@@ -51,4 +51,8 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 0.25em;
+    font-size: xx-large;
+    text-transform: uppercase;
 }

@@ -20,7 +20,7 @@ get_header();
  */
 if( is_home() && is_front_page() )
 ?>
-    <div class="newsmatic-child-event-banner slide-item slick-clone"></div>
+    <div class="newsmatic-child-event-banner slide-item slick-clone">cliquez ici pour suivre<br>l'évènement avec nous</div>
 <?php
 
 do_action( 'newsmatic_main_banner_hook' );
