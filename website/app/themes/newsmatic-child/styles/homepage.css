@@ -39,7 +39,7 @@
 
 .newsmatic-child-event-banner {
     background-color: red;
-    height: 28vh;
+    height: 30vh;
     width: 60vw;
     top: 0;
     bottom: 0;
@@ -52,7 +52,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
-    padding-top: 0.25em;
-    font-size: xx-large;
+    padding-top: 0.25vh;
+    font-size: 1.5em;
     text-transform: uppercase;
+    font-family: Roboto, serif;
+    font-weight: 500;
 }
