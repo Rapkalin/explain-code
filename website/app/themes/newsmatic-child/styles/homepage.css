@@ -36,3 +36,19 @@
 .main-banner-wrap .post-element .post-excerpt p {
     display: none;
 }
+
+.newsmatic-child-event-banner {
+    background-color: red;
+    height: 28vh;
+    width: 60vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-bottom: 0.5em;
+    background-image: url("../images/explain-code-to.me-banner-event-php-forum-dark.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
