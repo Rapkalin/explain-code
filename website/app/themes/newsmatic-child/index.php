@@ -99,7 +99,9 @@ foreach( $homepage_content_order as $content_order_key => $content_order ) :
                                             * If you want to override this in a child theme, then include a file
                                             * called content-___.php (where ___ is the Post Type name) and that will be used instead.
                                             */
-                                            get_template_part( 'template-parts/content', get_post_type(), $args );
+                                            if (!has_tag('tags-forum-php', get_the_ID())) :
+                                                get_template_part( 'template-parts/content', get_post_type(), $args );
+                                            endif;
                                         endwhile;
                                         echo '</div>';
                                         /**
