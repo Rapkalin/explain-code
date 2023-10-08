@@ -45,7 +45,7 @@
         "wpackagist-plugin/wp-ulike": "^4.6",
         "wpackagist-plugin/google-site-kit":"^1.108",
         "wpackagist-plugin/svg-support":"^2.5",
-        "wpackagist-plugin/translatepress-multilingual":"2.6.1",
+        "wpackagist-plugin/translatepress-multilingual":"^2.6",
 
         "ext-dom": "*",
         "ext-libxml": "*"
