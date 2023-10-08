@@ -91,3 +91,29 @@
     padding-bottom: 10px;
     text-transform: uppercase;
 }
+
+.search .primary-content-search-child article figure.post-thumb-wrap img {
+    height: 100%;
+}
+
+.search .row .primary-content-search-child {
+    text-align: inherit;
+}
+
+.search figure.post-thumb-wrap {
+    padding-bottom: unset;
+    height: 200px;
+}
+
+.search .news-list-post-wrap .list-item {
+    align-items: center;
+    padding: 1em 0;
+}
+.search .page-header-search-child  {
+    margin-bottom: unset;
+}
+
+.search .post {
+    margin: unset;
+}
+
