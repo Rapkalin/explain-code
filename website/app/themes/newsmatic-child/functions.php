@@ -5,7 +5,9 @@ use Newsmatic\CustomizerDefault as ND;
 /**
  * Custom template tags for this child theme.
  */
+
 require get_stylesheet_directory() . '/inc/template-tags-child.php';
+require_once get_stylesheet_directory() . '/options/banner-event.php';
 
 add_action ( 'newsmatic_before_main_content', 'newsmatic_child_author_hook');
 
@@ -200,6 +202,9 @@ function newsmatic_child_register_style(): void
 
     wp_register_style( 'newsmatic-child-style-search', get_stylesheet_directory_uri() . '/styles/search.css' );
     wp_enqueue_style( 'newsmatic-child-style-search');
+
+    wp_register_style( 'newsmatic-child-style-theme-options', get_stylesheet_directory_uri() . '/styles/customizer-controls.css');
+    wp_enqueue_style( 'newsmatic-child-style-theme-options');
 
     wp_dequeue_script('newsmatic-theme');
     wp_enqueue_script('newsmatic-child-theme', get_stylesheet_directory_uri() . '/assets/js/theme.js', ['jquery'], NEWSMATIC_VERSION, true );
