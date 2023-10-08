@@ -19,9 +19,23 @@ get_header();
  * hooked - newsmatic_main_banner_part - 10
  */
 if( is_home() && is_front_page() )
+
+    $banner_title = nl2br(get_theme_mod('newsmatic_child_banner_title')) ?: 'Titre de la bannière';
+    $banner_url = get_theme_mod('newsmatic_child_banner_url') ?: '/';
+    $banner_is_active = get_theme_mod('newsmatic_child_banner_active');
+
+if ($banner_is_active) :
 ?>
-    <div class="newsmatic-child-event-banner slide-item slick-clone">cliquez ici pour suivre<br>l'évènement avec nous</div>
+
+    <!-- Banner event -->
+    <a
+            class="newsmatic-child-event-banner slide-item slick-clone"
+            href="<?php echo $banner_url ?>"
+    >
+        <?php echo $banner_title ?>
+    </a>
 <?php
+endif;
 
 do_action( 'newsmatic_main_banner_hook' );
 
@@ -99,7 +113,9 @@ foreach( $homepage_content_order as $content_order_key => $content_order ) :
                                             * If you want to override this in a child theme, then include a file
                                             * called content-___.php (where ___ is the Post Type name) and that will be used instead.
                                             */
-                                            get_template_part( 'template-parts/content', get_post_type(), $args );
+                                            if (!has_tag('tags-forum-php', get_the_ID())) :
+                                                get_template_part( 'template-parts/content', get_post_type(), $args );
+                                            endif;
                                         endwhile;
                                         echo '</div>';
                                         /**

@@ -38,6 +38,7 @@
 }
 
 .newsmatic-child-event-banner {
+    display: block;
     height: 30vh;
     width: 60vw;
     top: 0;
@@ -53,7 +54,7 @@
     text-transform: uppercase;
     font-family: Roboto, serif;
     font-weight: 500;
-    color: white;
+    color: white !important;
 }
 
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */
