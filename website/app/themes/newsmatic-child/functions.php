@@ -49,6 +49,32 @@ add_filter( 'jetpack_sharing_counts', '__return_false', 99 );
 add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 add_action( 'wp_default_scripts', 'remove_jquery_migrate' );
 
+/* Override post queries */
+add_action( 'pre_get_posts', 'custom_filter_posts_by_tags' );
+
+/**
+ * Filter unwanted tags on selected pages
+ * @param $query
+ * @return void
+ */
+function custom_filter_posts_by_tags($query): void
+{
+    $excludedTags = ['tags-forum-php'];
+
+    $tagIds = [];
+    foreach ($excludedTags as $excludedTag) {
+        $tag = get_term_by('slug', $excludedTag, 'post_tag');
+        if ($tag) {
+            $tagIds[] = $tag->term_id;
+        }
+    }
+
+    // if tag is not empty and is main query and is not admin and is home
+    if (!empty($tagIds) && $query->is_main_query() && !is_admin() && is_home()) {
+        $query->set('tag__not_in', $tagIds);
+    }
+}
+
 
 /**
  * @return void
