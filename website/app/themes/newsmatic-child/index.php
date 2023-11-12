@@ -40,6 +40,7 @@ endif;
 do_action( 'newsmatic_main_banner_hook' );
 
 $homepage_content_order = ND\newsmatic_get_customizer_option( 'homepage_content_order' );
+
 foreach( $homepage_content_order as $content_order_key => $content_order ) :
     if( $content_order['value'] == 'latest_posts' && is_home() && ! is_front_page()  ) $content_order['option'] = true;
     if( $content_order['option'] ) :
@@ -107,15 +108,13 @@ foreach( $homepage_content_order as $content_order_key => $content_order ) :
                                         echo '<div class="news-list-wrap">';
                                         /* Start the Loop */
                                         while ( have_posts() ) :
-                                            the_post();
                                             /*
                                             * Include the Post-Type-specific template for the content.
                                             * If you want to override this in a child theme, then include a file
                                             * called content-___.php (where ___ is the Post Type name) and that will be used instead.
                                             */
-                                            if (!has_tag('tags-forum-php', get_the_ID())) :
-                                                get_template_part( 'template-parts/content', get_post_type(), $args );
-                                            endif;
+                                            the_post();
+                                            get_template_part( 'template-parts/content', get_post_type(), $args );
                                         endwhile;
                                         echo '</div>';
                                         /**
