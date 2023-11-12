@@ -542,7 +542,7 @@ function filter_content_without_plugins($content) {
     $classes_to_remove = array('wpulike', 'sharedaddy');
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
-    $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'));
+    $dom->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
     libxml_clear_errors();
 
     $xpath = new DOMXPath($dom);
