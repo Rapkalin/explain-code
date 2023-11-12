@@ -27,6 +27,14 @@ body.single .navigation.post-navigation {
     color: whitesmoke;
 }
 
+.entry-content p {
+    font-family: var(--single-content-family);
+    font-size: var(--single-content-size);
+    font-weight: var(--single-content-weight);
+    line-height: var(--single-content-lineheight);
+    letter-spacing: var(--single-content-letterspacing);
+}
+
 body .entry-content > h2 {
     color: black;
 }

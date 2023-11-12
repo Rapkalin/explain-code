@@ -39,22 +39,22 @@ div.info-bulle-component-front ul {
 span.icon-information::before {
 	content: url(images/information.svg);
 	position: relative;
-	top: 1.5em;
-	left: -1em;
+	top: 0.75em;
+	left: -0.75em;
 }
 
 span.icon-warning::before {
 	content: url(images/warning.svg);
 	position: relative;
-	top: 1.5em;
-	left: -1em;
+	top: 0.75em;
+	left: -0.75em;
 }
 
 span.icon-alert::before {
 	content: url(images/alert.svg);
 	position: relative;
-	top: 1.5em;
-	left: -1em;
+	top: 0.75em;
+	left: -0.75em;
 }
 
 .margin-warning, .margin-information, .margin-alert {
