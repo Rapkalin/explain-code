@@ -28,8 +28,6 @@ website/app/*
 !website/app/advanced-cache.php
 !website/app/object-cache.php
 website/app/themes/newsmatic
-exports/*
-!exports/.gitkeep
 
 #Plugins to ignore
 !website/app/plugins/
